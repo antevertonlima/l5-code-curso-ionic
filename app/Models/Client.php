@@ -15,8 +15,8 @@ class Client extends Model
         'zipcode'
     ];
 
-    public function user()
+    public function users()
     {
-        $this->hasOne(User::class);
+        return $this->hasOne(User::class);
     }
 }

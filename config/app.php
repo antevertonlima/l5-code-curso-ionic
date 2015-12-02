@@ -145,6 +145,11 @@ return [
         CodeDelivery\Providers\EventServiceProvider::class,
         CodeDelivery\Providers\RouteServiceProvider::class,
 
+        /*
+         * Implementando o padrao repository
+         */
+        //Prettus\Repository\Providers\RepositoryServiceProvider::class,
+
     ],
 
     /*
