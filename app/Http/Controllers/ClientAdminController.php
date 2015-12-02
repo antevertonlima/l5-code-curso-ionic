@@ -22,7 +22,18 @@ class ClientAdminController extends Controller
 
     public function index()
     {
-//        return $this->users->all();
-        return $this->client->find(1)->users;
+        $clients = $this->users->all();
+       
+        return view('admin.client', compact('clients'));
+    }
+
+    public function destroy($client_id, $user_id)
+    {
+        $client = $this->client->find($client_id);
+        $user = $this->users->find($user_id);
+        $client->delete();
+        $user->delete();
+
+        return redirect()->route('adminClient');
     }
 }

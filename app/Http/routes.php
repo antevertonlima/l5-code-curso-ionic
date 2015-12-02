@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('client', 'ClientAdminController@index');
+Route::get('client', ['as' => 'adminClient', 'uses' => 'ClientAdminController@index']);
+Route::get('destroy/{client_id}/{user_id}', ['as' => 'adminDestroy', 'uses' => 'ClientAdminController@destroy']);
