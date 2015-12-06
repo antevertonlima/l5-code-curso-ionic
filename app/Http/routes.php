@@ -15,5 +15,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('client', ['as' => 'adminClient', 'uses' => 'ClientAdminController@index']);
-Route::get('destroy/{client_id}/{user_id}', ['as' => 'adminDestroy', 'uses' => 'ClientAdminController@destroy']);
+Route::group(['prefix' => 'client'], function(){
+    Route::get('', [
+        'as' => 'adminClient',
+        'uses' => 'ClientAdminController@index'
+    ]);
+    Route::get('destroy/{client_id}/{user_id}', [
+        'as' => 'adminClientDestroy', 'uses' =>
+        'ClientAdminController@destroy'
+    ]);
+    Route::get('edit/{user_id}', [
+        'as' => 'adminClientEdit',
+        'uses' => 'ClientAdminController@edit'
+    ]);
+});
+
+Route::group(['prefix' => 'category'], function(){
+    Route::get('', [
+        'as' => 'adminCategory',
+        'uses' => 'CategoryAdminController@index'
+    ]);
+    Route::get('destroy/{category_id}', [
+        'as' => 'adminCategoryDestroy',
+        'uses' => 'CategoryAdminController@destroy'
+    ]);
+    Route::get('edit/{category_id}', [
+        'as' => 'adminCategoryEdit',
+        'uses' => 'CategoryAdminController@edit'
+    ]);
+});

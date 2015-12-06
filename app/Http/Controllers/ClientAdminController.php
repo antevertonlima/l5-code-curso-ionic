@@ -3,8 +3,8 @@
 namespace CodeDelivery\Http\Controllers;
 
 
-use CodeDelivery\Models\Client;
-use CodeDelivery\Models\User;
+use CodeDelivery\Repositories\ClientRepository;
+use CodeDelivery\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 use CodeDelivery\Http\Requests;
@@ -14,7 +14,7 @@ class ClientAdminController extends Controller
 {
     protected $users, $client;
 
-    public function __construct(Client $client, User $users)
+    public function __construct(ClientRepository $client, UserRepository $users)
     {
         $this->client = $client;
         $this->users = $users;
@@ -22,9 +22,14 @@ class ClientAdminController extends Controller
 
     public function index()
     {
-        $clients = $this->users->all();
+        $clients = $this->users->paginate(10);
        
-        return view('admin.client', compact('clients'));
+        return view('admin.client.index', compact('clients'));
+    }
+
+    public function edit($user_id)
+    {
+        null;
     }
 
     public function destroy($client_id, $user_id)

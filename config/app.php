@@ -138,17 +138,23 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
+         * Implementando o padrao repository
+         */
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+
+        /*
+         * Implementando views de teste do lra
+         */
+        Bestmomo\Scafold\ScafoldServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         CodeDelivery\Providers\AppServiceProvider::class,
         CodeDelivery\Providers\AuthServiceProvider::class,
         CodeDelivery\Providers\EventServiceProvider::class,
         CodeDelivery\Providers\RouteServiceProvider::class,
-
-        /*
-         * Implementando o padrao repository
-         */
-        //Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        CodeDelivery\Providers\RepositoryServiceProvider::class,
 
     ],
 

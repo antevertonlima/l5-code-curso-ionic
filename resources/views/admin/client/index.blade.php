@@ -31,13 +31,18 @@
 	        			<td>{{ $clientes->created_at }}</td>
 	        			<td>{{ $clientes->updated_at }}</td>
 	        			<td>
-                            <a href="/destroy/{{ $clientes->id }}" class="btn btn-info btn-xs"
+                            <a href="{{ route('adminClientEdit',
+                            				 ['user_id' => $clientes->id]) }}"
+							   class="btn btn-info btn-xs"
                             	data-toggle="tooltip" 
                             	data-placement="top" title="" 
                             	data-original-title="Editar Cliente">
                             	<i class="fa fa-pencil"></i>  
                             </a>
-                            <a href="http://localhost/estudos/l5-code-curso-ionic/public/destroy/{{ $clientes->client->id }}/{{ $clientes->id }}" class="btn btn-danger btn-xs"
+                            <a href="{{ route('adminClientDestroy',
+                            				 ['client_id' => $clientes->client->id,
+                            				 'user_id' => $clientes->id]) }}"
+							   class="btn btn-danger btn-xs"
                             	data-toggle="tooltip" 
                             	data-placement="top" title="" 
                             	data-original-title="Excluir Cliente">
@@ -57,6 +62,8 @@
         		@endforeach
         	</tbody>
         </table>
+
+		{!! $clients->render() !!}
     </div>
 
 @endsection

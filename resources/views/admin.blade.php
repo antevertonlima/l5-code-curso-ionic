@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>CodeDelivery | </title>
 
     <!-- Bootstrap core CSS -->
 
@@ -44,7 +44,7 @@
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> 
+                    <a href="./" class="site_title"><i class="fa fa-paw"></i>
                         <span>Code Delivery</span>
                     </a>
                 </div>
@@ -73,10 +73,10 @@
                             <li><a><i class="fa fa-windows"></i> Gerenciar <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none">
                                     <li>
-                                        <a href="http://localhost/estudos/l5-code-curso-ionic/public/client">Clientes</a>
+                                        <a href="{{ route('adminClient') }}">Clientes</a>
                                     </li>
                                     <li>
-                                        <a href="page_500.html">500 Error</a>
+                                        <a href="{{ route('adminCategory') }}">Categorias</a>
                                     </li>
                                     <li>
                                         <a href="plain_page.html">Plain Page</a>
@@ -233,7 +233,7 @@
                         <h3>@yield('titleLeft')</h3>
                     </div>
 
-                    <!-- 
+                    <!--
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                             <div class="input-group">
@@ -256,9 +256,9 @@
                                 <h2>@yield('titlePainel')</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li>
-                                        <a href="#" data-toggle="tooltip" 
-                                                    data-placement="right" title="" 
-                                                    data-original-title="Adicionar Novo Cliente">
+                                        <a href="#" data-toggle="tooltip"
+                                           data-placement="right" title=""
+                                           data-original-title="Adicionar Novo Cliente">
                                             <i class="fa fa-plus-circle fa-2x"></i>
                                         </a>
                                     </li>
