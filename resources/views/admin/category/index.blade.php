@@ -8,6 +8,16 @@
 	Listagem de Categorias
 @endsection
 
+@section('optionsPainel')
+    <li>
+        <a href="{{ route('adminCreateCategory') }}" data-toggle="tooltip"
+           data-placement="right" title=""
+           data-original-title="Adicionar Nova Categoria">
+            <i class="fa fa-plus-circle fa-2x"></i>
+        </a>
+    </li>
+@endsection
+
 @section('content')
 
     <div class="content">

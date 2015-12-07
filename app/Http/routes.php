@@ -35,6 +35,14 @@ Route::group(['prefix' => 'category'], function(){
         'as' => 'adminCategory',
         'uses' => 'CategoryAdminController@index'
     ]);
+    Route::get('create', [
+        'as' => 'adminCreateCategory',
+        'uses' => 'CategoryAdminController@create'
+    ]);
+    Route::post('store', [
+        'as' => 'adminStoreCategory',
+        'uses' => 'CategoryAdminController@store'
+    ]);
     Route::get('destroy/{category_id}', [
         'as' => 'adminCategoryDestroy',
         'uses' => 'CategoryAdminController@destroy'
@@ -42,5 +50,9 @@ Route::group(['prefix' => 'category'], function(){
     Route::get('edit/{category_id}', [
         'as' => 'adminCategoryEdit',
         'uses' => 'CategoryAdminController@edit'
+    ]);
+    Route::post('update/{category_id}', [
+        'as' => 'adminCategoryUpdate',
+        'uses' => 'CategoryAdminController@update'
     ]);
 });

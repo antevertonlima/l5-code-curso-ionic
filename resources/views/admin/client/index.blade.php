@@ -8,6 +8,16 @@
 	Listagem de Clientes
 @endsection
 
+@section('optionsPainel')
+    <li>
+        <a href="#" data-toggle="tooltip"
+           data-placement="right" title=""
+           data-original-title="Adicionar Novo Cliente">
+            <i class="fa fa-plus-circle fa-2x"></i>
+        </a>
+    </li>
+@endsection
+
 @section('content')
 
     <div class="content">

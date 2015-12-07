@@ -56,8 +56,8 @@
                         <img src="{{ asset('assets/images/img.jpg') }}" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span>Welcome,</span>
-                        <h2>Anthony Fernando</h2>
+                        <span>Bem Vindo,</span>
+                        <h2>Everton Lima</h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -255,13 +255,7 @@
                             <div class="x_title">
                                 <h2>@yield('titlePainel')</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li>
-                                        <a href="#" data-toggle="tooltip"
-                                           data-placement="right" title=""
-                                           data-original-title="Adicionar Novo Cliente">
-                                            <i class="fa fa-plus-circle fa-2x"></i>
-                                        </a>
-                                    </li>
+                                    @yield('optionsPainel')
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
