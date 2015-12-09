@@ -17,10 +17,17 @@
 @section('content')
 
     <div class="content">
+        @if( $errors->any() )
+            <ul class="alert">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
         
-        {!! Form::open(['route' => 'adminStoreCategory', 'class' => 'form-horizontal form-label-left']) !!}
+        {!! Form::open(['route' => 'adminStoreClient', 'class' => 'form-horizontal form-label-left']) !!}
 
-        @include('admin.category._form')
+        @include('admin.client._form')
 
         <div class="ln_solid"></div>
         <div class="form-group">

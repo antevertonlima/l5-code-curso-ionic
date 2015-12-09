@@ -10,7 +10,7 @@
 
 @section('optionsPainel')
     <li>
-        <a href="#" data-toggle="tooltip"
+        <a href="{{ route('adminCreateClient') }}" data-toggle="tooltip"
            data-placement="right" title=""
            data-original-title="Adicionar Novo Cliente">
             <i class="fa fa-plus-circle fa-2x"></i>
@@ -33,16 +33,16 @@
         		</tr>
         	</thead>
         	<tbody>
-        		@foreach($clients as $clientes)
+        		@foreach($client as $clientes)
 	    			<tr>
-	        			<td>{{ $clientes->name }}</td>
-	        			<td>{{ $clientes->email }}</td>
-	        			<td>{{ $clientes->role }}</td>
+	        			<td>{{ $clientes->id }}</td>
+	        			<td>{{ $clientes->user->email }}</td>
+	        			<td>{{ $clientes->user->role }}</td>
 	        			<td>{{ $clientes->created_at }}</td>
 	        			<td>{{ $clientes->updated_at }}</td>
 	        			<td>
                             <a href="{{ route('adminClientEdit',
-                            				 ['user_id' => $clientes->id]) }}"
+                            				 ['client_id' => $clientes->id]) }}"
 							   class="btn btn-info btn-xs"
                             	data-toggle="tooltip" 
                             	data-placement="top" title="" 
@@ -50,8 +50,7 @@
                             	<i class="fa fa-pencil"></i>  
                             </a>
                             <a href="{{ route('adminClientDestroy',
-                            				 ['client_id' => $clientes->client->id,
-                            				 'user_id' => $clientes->id]) }}"
+                            				 ['client_id' => $clientes->id]) }}"
 							   class="btn btn-danger btn-xs"
                             	data-toggle="tooltip" 
                             	data-placement="top" title="" 
@@ -62,18 +61,18 @@
 	        		</tr>
 	        		<tr>
 					    <td colspan="6">
-					    	<strong>Address:</strong> {{ $clientes->client->address }}<br>
-					    	<strong>Phone:</strong> {{ $clientes->client->phone }}<br>
-					    	<strong>City:</strong> {{ $clientes->client->city }}<br>
-					    	<strong>State:</strong> {{ $clientes->client->state }}<br>
-					    	<strong>Zipcode:</strong> {{ $clientes->client->zipcode }}
+					    	<strong>Address:</strong> {{ $clientes->address }}<br>
+					    	<strong>Phone:</strong> {{ $clientes->phone }}<br>
+					    	<strong>City:</strong> {{ $clientes->city }}<br>
+					    	<strong>State:</strong> {{ $clientes->state }}<br>
+					    	<strong>Zipcode:</strong> {{ $clientes->zipcode }}
 					    </td>
 					</tr>
         		@endforeach
         	</tbody>
         </table>
 
-		{!! $clients->render() !!}
+		{!! $client->render() !!}
     </div>
 
 @endsection

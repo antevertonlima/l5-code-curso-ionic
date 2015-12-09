@@ -19,9 +19,9 @@ class Client extends Model implements Transformable
         'zipcode'
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class,'id','user_id');
     }
 
 }

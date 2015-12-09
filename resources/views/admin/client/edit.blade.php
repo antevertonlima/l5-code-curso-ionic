@@ -1,11 +1,11 @@
 @extends('admin')
 
 @section('titleLeft')
-	Cadastro de Categorias
+	Cadastro de Clientes
 @endsection
 
 @section('titlePainel')
-	Adicionar Nova Categoria
+	Editar Cliente
 @endsection
 
 @section('optionsPainel')
@@ -17,10 +17,18 @@
 @section('content')
 
     <div class="content">
+        @if( $errors->any() )
+            <ul class="alert">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
         
-        {!! Form::model($category,['route' => ['adminCategoryUpdate', $category->id], 'class' => 'form-horizontal form-label-left']) !!}
+        {!! Form::model($client,['route' => ['adminClientUpdate', $client->id], 
+                                 'class' => 'form-horizontal form-label-left']) !!}
 
-        @include('admin.category._form')
+        @include('admin.client._form')
 
         <div class="ln_solid"></div>
         <div class="form-group">

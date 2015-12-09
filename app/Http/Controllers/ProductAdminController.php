@@ -6,6 +6,7 @@ use CodeDelivery\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
 use CodeDelivery\Http\Requests;
+use CodeDelivery\Http\Requests\AdminProductRequest;
 use CodeDelivery\Http\Controllers\Controller;
 
 class ProductAdminController extends Controller
@@ -28,7 +29,7 @@ class ProductAdminController extends Controller
         return view('admin.product.store', compact('product'));
     }
 
-    public function store(Request $request)
+    public function store(AdminProductRequest $request)
     {
         $inputs = $request->all();
         $this->repository->create($inputs);
@@ -41,7 +42,7 @@ class ProductAdminController extends Controller
         return view('admin.product.edit', compact('product'));
     }
 
-    public function update(Request $request, $product_id)
+    public function update(AdminProductRequest $request, $product_id)
     {
         $inputs = $request->all();
         $this->repository->update($inputs, $product_id);

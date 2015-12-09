@@ -2,43 +2,57 @@
 
 namespace CodeDelivery\Http\Controllers;
 
-
 use CodeDelivery\Repositories\ClientRepository;
-use CodeDelivery\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 use CodeDelivery\Http\Requests;
+use CodeDelivery\Http\Requests\AdminClientRequest;
 use CodeDelivery\Http\Controllers\Controller;
 
 class ClientAdminController extends Controller
 {
-    protected $users, $client;
+    protected $repository;
 
-    public function __construct(ClientRepository $client, UserRepository $users)
+    public function __construct(ClientRepository $repository)
     {
-        $this->client = $client;
-        $this->users = $users;
+        $this->repository = $repository;
     }
 
     public function index()
     {
-        $clients = $this->users->paginate(10);
-       
-        return view('admin.client.index', compact('clients'));
+        $client = $this->repository->paginate(10);
+        return view('admin.client.index', compact('client'));
     }
 
-    public function edit($user_id)
+    public function create()
     {
-        null;
+        return view('admin.client.store');
     }
 
-    public function destroy($client_id, $user_id)
+    public function store(AdminClientRequest $request)
     {
-        $client = $this->client->find($client_id);
-        $user = $this->users->find($user_id);
+        $inputs = $request->all();
+        $this->repository->create($inputs);
+        return redirect()->route('adminClient');
+    }
+
+    public function edit($client_id)
+    {
+        $client = $this->repository->find($client_id);
+        return view('admin.client.edit', compact('client'));
+    }
+
+    public function update(AdminClientRequest $request, $client_id)
+    {
+        $inputs = $request->all();
+        $this->repository->update($inputs, $client_id);
+        return redirect()->route('adminClient');
+    }
+
+    public function destroy($client_id)
+    {
+        $client = $this->repository->find($client_id);
         $client->delete();
-        $user->delete();
-
         return redirect()->route('adminClient');
     }
 }

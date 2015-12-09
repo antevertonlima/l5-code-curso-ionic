@@ -11,13 +11,25 @@ Route::group(['prefix' => 'admin'], function(){
             'as' => 'adminClient',
             'uses' => 'ClientAdminController@index'
         ]);
-        Route::get('destroy/{client_id}/{user_id}', [
+        Route::get('create', [
+            'as' => 'adminCreateClient',
+            'uses' => 'ClientAdminController@create'
+        ]);
+        Route::get('destroy/{client_id}', [
             'as' => 'adminClientDestroy', 'uses' =>
             'ClientAdminController@destroy'
         ]);
-        Route::get('edit/{user_id}', [
+        Route::get('edit/{client_id}', [
             'as' => 'adminClientEdit',
             'uses' => 'ClientAdminController@edit'
+        ]);
+        Route::post('store', [
+            'as' => 'adminStoreClient',
+            'uses' => 'ClientAdminController@store'
+        ]);
+        Route::post('update/{client_id}', [
+            'as' => 'adminClientUpdate',
+            'uses' => 'ClientAdminController@update'
         ]);
     });
     //rota de categorias

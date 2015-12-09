@@ -17,6 +17,13 @@
 @section('content')
 
     <div class="content">
+        @if( $errors->any() )
+            <ul class="alert">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
         
         {!! Form::model($product,['route' => ['adminProductUpdate', $product->id], 'class' => 'form-horizontal form-label-left']) !!}
 
