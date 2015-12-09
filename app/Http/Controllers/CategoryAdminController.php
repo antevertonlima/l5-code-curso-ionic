@@ -6,20 +6,21 @@ use CodeDelivery\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
 use CodeDelivery\Http\Requests;
+use CodeDelivery\Http\Requests\AdminCategoryRequest;
 use CodeDelivery\Http\Controllers\Controller;
 
 class CategoryAdminController extends Controller
 {
-    protected $catRepository;
+    protected $repository;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(CategoryRepository $repository)
     {
-        $this->catRepository = $categoryRepository;
+        $this->repository = $repository;
     }
 
     public function index()
     {
-        $category = $this->catRepository->paginate(10);
+        $category = $this->repository->paginate(10);
         return view('admin.category.index', compact('category'));
     }
 
@@ -28,29 +29,29 @@ class CategoryAdminController extends Controller
         return view('admin.category.store', compact('category'));
     }
 
-    public function store(Request $request)
+    public function store(AdminCategoryRequest $request)
     {
         $inputs = $request->all();
-        $this->catRepository->create($inputs);
+        $this->repository->create($inputs);
         return redirect()->route('adminCategory');
     }
 
     public function edit($category_id)
     {
-        $category = $this->catRepository->find($category_id);
+        $category = $this->repository->find($category_id);
         return view('admin.category.edit', compact('category'));
     }
 
-    public function update(Request $request, $category_id)
+    public function update(AdminCategoryRequest $request, $category_id)
     {
         $inputs = $request->all();
-        $this->catRepository->update($inputs, $category_id);
+        $this->repository->update($inputs, $category_id);
         return redirect()->route('adminCategory');
     }
 
     public function destroy($category_id)
     {
-        $category = $this->catRepository->find($category_id);
+        $category = $this->repository->find($category_id);
         $category->delete();
         return redirect()->route('adminCategory');
     }

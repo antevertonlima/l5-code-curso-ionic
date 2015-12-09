@@ -14,7 +14,7 @@ class Product extends Model implements Transformable
 
     public function category()
     {
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
 }

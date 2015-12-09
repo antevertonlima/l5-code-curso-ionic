@@ -79,7 +79,7 @@
                                         <a href="{{ route('adminCategory') }}">Categorias</a>
                                     </li>
                                     <li>
-                                        <a href="plain_page.html">Plain Page</a>
+                                        <a href="{{ route('adminProduct') }}">Produtos</a>
                                     </li>
                                     <li>
                                         <a href="login.html">Login Page</a>

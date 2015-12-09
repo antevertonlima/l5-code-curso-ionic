@@ -15,19 +15,12 @@
 @endsection
 
 @section('content')
-    @if( $errors->any() )
-        <ul class="alert">
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
 
     <div class="content">
         
-        {!! Form::model($category,['route' => ['adminCategoryUpdate', $category->id], 'class' => 'form-horizontal form-label-left']) !!}
+        {!! Form::model($product,['route' => ['adminProductUpdate', $product->id], 'class' => 'form-horizontal form-label-left']) !!}
 
-        @include('admin.category._form')
+        @include('admin.product._form')
 
         <div class="ln_solid"></div>
         <div class="form-group">
