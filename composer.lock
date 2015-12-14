@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ae1a9451d8d2d82848f6b9077866ad1d",
+    "hash": "aabc74c56594cec62e6ffdcc5c2eb94f",
     "content-hash": "025ffd0af59dd8ad20fd70642a2ab50d",
     "packages": [
         {
@@ -456,12 +456,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "42af855835f7aed5f54034fcdefb05b813d25efa"
+                "reference": "425fe00dd4e22469ddb5efaf2734c51677b40c84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/42af855835f7aed5f54034fcdefb05b813d25efa",
-                "reference": "42af855835f7aed5f54034fcdefb05b813d25efa",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/425fe00dd4e22469ddb5efaf2734c51677b40c84",
+                "reference": "425fe00dd4e22469ddb5efaf2734c51677b40c84",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-12-07 02:55:01"
+            "time": "2015-12-09 19:26:38"
         },
         {
             "name": "league/flysystem",
@@ -584,12 +584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "3e97b4659b8057664d0d23b1491493d3501eaad2"
+                "reference": "0888b18acf3d21197756516cffdc4a70ed9e9eb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3e97b4659b8057664d0d23b1491493d3501eaad2",
-                "reference": "3e97b4659b8057664d0d23b1491493d3501eaad2",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0888b18acf3d21197756516cffdc4a70ed9e9eb3",
+                "reference": "0888b18acf3d21197756516cffdc4a70ed9e9eb3",
                 "shasum": ""
             },
             "require": {
@@ -660,7 +660,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-12-06 14:09:00"
+            "time": "2015-12-12 10:36:24"
         },
         {
             "name": "monolog/monolog",
@@ -837,12 +837,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "c542e5d86a9775abd1021618eb2430278bfc1e01"
+                "reference": "719ca71d4ac80e1985dcd91dd8ec5a47db58ad80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c542e5d86a9775abd1021618eb2430278bfc1e01",
-                "reference": "c542e5d86a9775abd1021618eb2430278bfc1e01",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/719ca71d4ac80e1985dcd91dd8ec5a47db58ad80",
+                "reference": "719ca71d4ac80e1985dcd91dd8ec5a47db58ad80",
                 "shasum": ""
             },
             "require": {
@@ -880,20 +880,20 @@
                 "parser",
                 "php"
             ],
-            "time": "2015-12-04 15:28:43"
+            "time": "2015-12-07 11:12:00"
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.1",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32"
+                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a208865a5aeffc2dbbef2a5b3409887272d93f32",
-                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/d762ee5b099a29044603cd4649851e81aa66cb47",
+                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
                 "shasum": ""
             },
             "require": {
@@ -928,7 +928,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-01 02:52:15"
+            "time": "2015-12-10 14:48:13"
         },
         {
             "name": "prettus/l5-repository",
@@ -1745,12 +1745,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "66eaba6a69366a9b2799dec3707ccdb12f88bdd7"
+                "reference": "322af2321957e446534258ff04e66b80b821ea84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/66eaba6a69366a9b2799dec3707ccdb12f88bdd7",
-                "reference": "66eaba6a69366a9b2799dec3707ccdb12f88bdd7",
+                "url": "https://api.github.com/repos/symfony/process/zipball/322af2321957e446534258ff04e66b80b821ea84",
+                "reference": "322af2321957e446534258ff04e66b80b821ea84",
                 "shasum": ""
             },
             "require": {
@@ -1786,7 +1786,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-05 18:10:05"
+            "time": "2015-12-10 16:58:22"
         },
         {
             "name": "symfony/routing",
@@ -2412,12 +2412,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "826f28f4cd17b31e4d42aa21729e52f88d91bc39"
+                "reference": "e871a2a0cf62b56c36b4781e99b50c6bf08fab77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/826f28f4cd17b31e4d42aa21729e52f88d91bc39",
-                "reference": "826f28f4cd17b31e4d42aa21729e52f88d91bc39",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/e871a2a0cf62b56c36b4781e99b50c6bf08fab77",
+                "reference": "e871a2a0cf62b56c36b4781e99b50c6bf08fab77",
                 "shasum": ""
             },
             "require": {
@@ -2464,7 +2464,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-11-24 09:53:50"
+            "time": "2015-12-10 20:38:17"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2712,12 +2712,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4"
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b2caaf8947aba5e002d42126723e9d69795f32b4",
-                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ea76b17bced0500a28098626b84eda12dbcf119c",
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c",
                 "shasum": ""
             },
             "require": {
@@ -2776,7 +2776,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-11-30 08:18:59"
+            "time": "2015-12-12 07:45:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2904,19 +2904,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "2b0112e42c338afa9ad9dfeb94d66f6d84c2f828"
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/2b0112e42c338afa9ad9dfeb94d66f6d84c2f828",
-                "reference": "2b0112e42c338afa9ad9dfeb94d66f6d84c2f828",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "extra": {
@@ -2948,7 +2948,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-06 07:21:36"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",

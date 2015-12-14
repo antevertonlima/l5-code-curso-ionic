@@ -35,7 +35,7 @@
         	<tbody>
         		@foreach($client as $clientes)
 	    			<tr>
-	        			<td>{{ $clientes->id }}</td>
+	        			<td>{{ $clientes->user->name }}</td>
 	        			<td>{{ $clientes->user->email }}</td>
 	        			<td>{{ $clientes->user->role }}</td>
 	        			<td>{{ $clientes->created_at }}</td>

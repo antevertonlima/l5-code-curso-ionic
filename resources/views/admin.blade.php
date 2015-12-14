@@ -82,7 +82,7 @@
                                         <a href="{{ route('adminProduct') }}">Produtos</a>
                                     </li>
                                     <li>
-                                        <a href="login.html">Login Page</a>
+                                        <a href="{{ route('orders.index') }}">Pedidos</a>
                                     </li>
                                     <li>
                                         <a href="pricing_tables.html">Pricing Tables</a>

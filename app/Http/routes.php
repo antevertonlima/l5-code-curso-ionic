@@ -86,4 +86,26 @@ Route::group(['prefix' => 'admin'], function(){
             'uses' => 'ProductAdminController@update'
         ]);
     });
+    Route::group(['prefix' => 'orders'], function(){
+        Route::get('', [
+            'as' => 'orders.index',
+            'uses' => 'OrdersController@index'
+        ]);
+        Route::get('create', [
+            'as' => 'orders.create',
+            'uses' => 'OrdersController@create'
+        ]);
+        Route::get('edit/{order_id}', [
+            'as' => 'orders.edit',
+            'uses' => 'OrdersController@edit'
+        ]);
+        Route::post('store', [
+            'as' => 'orders.store',
+            'uses' => 'OrdersController@store'
+        ]);
+        Route::post('update/{order_id}', [
+            'as' => 'orders.update',
+            'uses' => 'OrdersController@update'
+        ]);
+    });
 });
