@@ -1,11 +1,11 @@
 @extends('admin')
 
 @section('titleLeft')
-	Cadastro de Categorias
+	Cadastro de Clientes
 @endsection
 
 @section('titlePainel')
-	Adicionar Nova Categoria
+	Adicionar Novo Cliente
 @endsection
 
 @section('optionsPainel')

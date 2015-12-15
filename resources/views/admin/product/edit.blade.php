@@ -1,11 +1,11 @@
 @extends('admin')
 
 @section('titleLeft')
-	Cadastro de Categorias
+	Gerenciar Produtos
 @endsection
 
 @section('titlePainel')
-	Adicionar Nova Categoria
+	Editar Produto
 @endsection
 
 @section('optionsPainel')

@@ -27,6 +27,7 @@
 					<th>Id</th>
         			<th>Produto</th>
                     <th>Categoria</th>
+                    <th>Preço</th>
         			<th>Ações</th>
         		</tr>
         	</thead>
@@ -36,6 +37,7 @@
 	        			<td>{{ $products->id }}</td>
 						<td>{{ $products->name }}</td>
                         <td>{{ $products->category->name }}</td>
+                        <td>{{ $products->price }}</td>
 	        			<td>
                             <a href="{{ route('adminProductEdit',
                             				 ['product_id' => $products->id ]) }}"

@@ -21,7 +21,7 @@ class User extends Model implements Transformable,
 
     protected $table = 'users';
 
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password','role'];
 
     protected $hidden = ['password', 'remember_token'];
 
