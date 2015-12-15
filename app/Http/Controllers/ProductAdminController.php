@@ -29,7 +29,8 @@ class ProductAdminController extends Controller
 
     public function create()
     {
-        return view('admin.product.store', compact('product'));
+        $categories = $this->categoryRepository->lists();
+        return view('admin.product.store', compact('product','categories'));
     }
 
     public function store(AdminProductRequest $request)

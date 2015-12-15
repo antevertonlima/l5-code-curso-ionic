@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('titleLeft')
-	Pedidos
+	Gerenciar Pedidos
 @endsection
 
 @section('titlePainel')
@@ -24,17 +24,39 @@
         <table class="table table-striped projects">
         	<thead>
         		<tr>
-					<th>Id</th>
+                    <th>Id</th>
+                    <th>Total</th>
+                    <th>Data</th>
+                    <th>Itens</th>
+					<th>Entregador</th>
+                    <th>Status</th>
         			<th>Ações</th>
         		</tr>
         	</thead>
         	<tbody>
-        		@foreach($orders as $pedidos)
+        		@foreach($orders as $order)
 	    			<tr>
-	        			<td>{{ $pedidos->id }}</td>
+	        			<td>{{ $order->id }}</td>
+                        <td>{{ $order->total }}</td>
+                        <td>{{ $order->created_at }}</td>
+                        <td>
+                            <ul>
+                                @foreach($order->items as $item)
+                                    <li>{{ $item->product->name }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                        <td>
+                            @if($order->deliveryman)
+                                $order->deliveryman->name
+                            @else
+                                --
+                            @endif
+                        </td>
+                        <td>{{ $order->status }}</td>
 	        			<td>
                             <a href="{{ route('orders.edit',
-                            				 ['order_id' => $pedidos->id ]) }}"
+                            				 ['order_id' => $order->id ]) }}"
 							   class="btn btn-info btn-xs"
                             	data-toggle="tooltip" 
                             	data-placement="top" title="" 

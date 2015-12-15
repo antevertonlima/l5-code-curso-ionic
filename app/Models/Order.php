@@ -14,7 +14,7 @@ class Order extends Model implements Transformable
 
     public function items()
     {
-        $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class);
     }
 
     public function deliveryman()
