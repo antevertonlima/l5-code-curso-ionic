@@ -4,7 +4,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 //rotas administrativas
-Route::group(['prefix' => 'admin', 'middleware' => 'auth.checkrole'], function(){
+Route::group([
+    'prefix' => 'admin', 
+    'middleware' => 'auth.checkrole'/*, 
+    'as' => 'admin.'*/], function(){
 
     Route::group(['prefix' => 'client'], function(){
         Route::get('', [

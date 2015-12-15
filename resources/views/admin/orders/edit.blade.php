@@ -1,11 +1,11 @@
 @extends('admin')
 
 @section('titleLeft')
-	Cadastro de Categorias
+	Gerenciar Pedidos
 @endsection
 
-@section('titlePainel')
-	Adicionar Nova Categoria
+@section('titlePainel')  
+    Por: {{ $orders->client->user->name }}
 @endsection
 
 @section('optionsPainel')
@@ -24,10 +24,17 @@
     @endif
 
     <div class="content">
+        <h2>Pedido: #{{ $orders->id }} - R$ {{ $orders->total }} - Data: {{ $orders->created_at }}</h2>
+        <p>
+            <b>Entregar em:</b> 
+            {{ $orders->client->address }} - {{ $orders->client->city }} - {{ $orders->client->state }}
+        </p>
         
-        {!! Form::model($category,['route' => ['adminCategoryUpdate', $category->id], 'class' => 'form-horizontal form-label-left']) !!}
+        <div class="ln_solid"></div>
 
-        @include('admin.category._form')
+        {!! Form::model($orders,['route' => ['orders.update', $orders->id], 'class' => 'form-horizontal form-label-left']) !!}
+
+        @include('admin.orders._form')
 
         <div class="ln_solid"></div>
         <div class="form-group">
