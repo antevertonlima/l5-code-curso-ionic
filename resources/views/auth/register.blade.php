@@ -1,65 +1,48 @@
-@extends('app')
+<div id="register" class="animate form">
+	@if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<strong>Whoops!</strong> There were some problems with your input.<br><br>
+			<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+	@endif
+	<section class="login_content">
+		<form method="POST" action="{{ url('/auth/register') }}">
+			{!! csrf_field() !!}
+			<h1>Criar Conta</h1>
+			<div>
+				<input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Seu Nome" required="" />
+			</div>
+			<div>
+				<input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email" required="" />
+			</div>
+			<div>
+				<input type="password" name="password" class="form-control" placeholder="Password" required="" />
+			</div>
+			<div>
+				<input type="password" name="password_confirmation" class="form-control" placeholder="Password" required="" />
+			</div>
+			<div>
+				<input type="submit" class="btn btn-default submit" value="Criar" />
+			</div>
+			<div class="clearfix"></div>
+			<div class="separator">
 
-@section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+				<p class="change_link">Already a member ?
+					<a href="#tologin" class="to_register"> Log in </a>
+				</p>
+				<div class="clearfix"></div>
+				<br />
+				<div>
+					<h1><i class="fa fa-paw" style="font-size: 26px;"></i> CodeDelivery!</h1>
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
-						{!! csrf_field() !!}
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Name</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Confirm Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password_confirmation">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Register
-								</button>
-							</div>
-						</div>
-					</form>
+					<p>©2015 All Rights Reserved. CodeDelivery. Privacy and Terms</p>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
-@endsection
+		</form>
+		<!-- form -->
+	</section>
+	<!-- content -->

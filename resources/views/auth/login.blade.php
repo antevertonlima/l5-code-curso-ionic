@@ -1,61 +1,49 @@
 @extends('app')
 
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+<section class="login_content">
+	@if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<strong>Whoops!</strong> There were some problems with your input.<br><br>
+			<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+	@endif
+	<form method="POST" action="{{ url('/auth/login') }}">
+		{!! csrf_field() !!}
+		<h1>Identifique-se!</h1>
+		<div>
+			<input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="seuemail@seuemail.com" required="" />
+		</div>
+		<div>
+			<input type="password" name="password" class="form-control" placeholder="Password" required="" />
+		</div>
+		<div>
+			<input type="submit" class="btn btn-default submit" value="Logar" />
+			<a class="reset_pass" href="{{ url('/password/email') }}">Perdeu sua senha?</a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="separator">
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-						{!! csrf_field() !!}
+			<p class="change_link">E novo por aqui?
+				<a href="#toregister" class="to_register"> Crie uma Conta! </a>
+			</p>
+			<div class="clearfix"></div>
+			<br />
+			<div>
+				<h1><i class="fa fa-paw" style="font-size: 26px;"></i> CodeDelivery</h1>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
-
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-							</div>
-						</div>
-					</form>
-				</div>
+				<p>©2015 All Rights Reserved. CodeDelivery. Privacy and Terms</p>
 			</div>
 		</div>
-	</div>
+	</form>
+	<!-- form -->
+</section>
+<!-- content -->
 </div>
+@include('auth.register')
+
 @endsection
