@@ -30,7 +30,7 @@ $factory->define(CodeDelivery\Models\Product::class, function (Faker\Generator $
     return [
         'name' => $faker->word,
         'description' => $faker->sentence,
-        'price' => $faker->numberBetween(10, 50)
+        'price' => $faker->numberBetween(10,50)
     ];
 });
 
@@ -54,6 +54,12 @@ $factory->define(CodeDelivery\Models\Order::class, function (Faker\Generator $fa
 
 $factory->define(CodeDelivery\Models\OrderItem::class, function (Faker\Generator $faker) {
     return [
-        
+    ];
+});
+
+$factory->define(CodeDelivery\Models\Cupom::class, function (Faker\Generator $faker) {
+    return [
+        'code' => rand(100,1000),
+        'value' => rand(50,100)
     ];
 });

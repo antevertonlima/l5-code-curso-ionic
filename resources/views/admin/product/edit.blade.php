@@ -25,7 +25,7 @@
             </ul>
         @endif
         
-        {!! Form::model($product,['route' => ['adminProductUpdate', $product->id], 'class' => 'form-horizontal form-label-left']) !!}
+        {!! Form::model($product,['route' => ['admin.product.update', $product->id], 'class' => 'form-horizontal form-label-left']) !!}
 
         @include('admin.product._form')
 

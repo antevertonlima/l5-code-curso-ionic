@@ -37,7 +37,7 @@ class ProductAdminController extends Controller
     {
         $inputs = $request->all();
         $this->repository->create($inputs);
-        return redirect()->route('adminProduct');
+        return redirect()->route('admin.product.index');
     }
 
     public function edit($product_id)
@@ -51,13 +51,13 @@ class ProductAdminController extends Controller
     {
         $inputs = $request->all();
         $this->repository->update($inputs, $product_id);
-        return redirect()->route('adminProduct');
+        return redirect()->route('admin.product.index');
     }
 
     public function destroy($product_id)
     {
         $product = $this->repository->find($product_id);
         $product->delete();
-        return redirect()->route('adminProduct');
+        return redirect()->route('admin.product.index');
     }
 }

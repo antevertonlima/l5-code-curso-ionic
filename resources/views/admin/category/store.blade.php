@@ -25,7 +25,7 @@
             </ul>
         @endif
         
-        {!! Form::open(['route' => 'adminStoreCategory', 'class' => 'form-horizontal form-label-left']) !!}
+        {!! Form::open(['route' => 'admin.category.store', 'class' => 'form-horizontal form-label-left']) !!}
 
         @include('admin.category._form')
 

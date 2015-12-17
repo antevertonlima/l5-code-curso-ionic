@@ -25,7 +25,7 @@
             </ul>
         @endif
         
-        {!! Form::open(['route' => 'adminStoreClient', 'class' => 'form-horizontal form-label-left']) !!}
+        {!! Form::open(['route' => 'admin.client.store', 'class' => 'form-horizontal form-label-left']) !!}
 
         @include('admin.client._form')
 

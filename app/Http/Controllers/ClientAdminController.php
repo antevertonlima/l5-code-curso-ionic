@@ -39,7 +39,7 @@ class ClientAdminController extends Controller
     {
         $inputs = $request->all();
         $this->clientService->create($inputs);
-        return redirect()->route('adminClient');
+        return redirect()->route('admin.client.index');
     }
 
     public function edit($client_id)
@@ -52,13 +52,13 @@ class ClientAdminController extends Controller
     {
         $inputs = $request->all();
         $this->clientService->update($inputs, $client_id);
-        return redirect()->route('adminClient');
+        return redirect()->route('admin.client.index');
     }
 
     public function destroy($client_id)
     {
         $client = $this->repository->find($client_id);
         $client->delete();
-        return redirect()->route('adminClient');
+        return redirect()->route('admin.client.index');
     }
 }

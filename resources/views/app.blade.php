@@ -43,11 +43,9 @@
 	<a class="hiddenanchor" id="tologin"></a>
 
 	<div id="wrapper">
-		<div id="login" class="animate form">
 
-			@yield('content')
+		@yield('content')
 
-		</div>
 	</div>
 </div>
 

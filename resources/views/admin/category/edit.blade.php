@@ -25,7 +25,7 @@
 
     <div class="content">
         
-        {!! Form::model($category,['route' => ['adminCategoryUpdate', $category->id], 'class' => 'form-horizontal form-label-left']) !!}
+        {!! Form::model($category,['route' => ['admin.category.update', $category->id], 'class' => 'form-horizontal form-label-left']) !!}
 
         @include('admin.category._form')
 

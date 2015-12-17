@@ -10,7 +10,7 @@
 
 @section('optionsPainel')
     <li>
-        <a href="{{ route('adminCreateClient') }}" data-toggle="tooltip"
+        <a href="{{ route('admin.client.create') }}" data-toggle="tooltip"
            data-placement="right" title=""
            data-original-title="Adicionar Novo Cliente">
             <i class="fa fa-plus-circle fa-2x"></i>
@@ -41,7 +41,7 @@
 	        			<td>{{ $clientes->created_at }}</td>
 	        			<td>{{ $clientes->updated_at }}</td>
 	        			<td>
-                            <a href="{{ route('adminClientEdit',
+                            <a href="{{ route('admin.client.edit',
                             				 ['client_id' => $clientes->id]) }}"
 							   class="btn btn-info btn-xs"
                             	data-toggle="tooltip" 
@@ -49,7 +49,7 @@
                             	data-original-title="Editar Cliente">
                             	<i class="fa fa-pencil"></i>  
                             </a>
-                            <a href="{{ route('adminClientDestroy',
+                            <a href="{{ route('admin.client.destroy',
                             				 ['client_id' => $clientes->id]) }}"
 							   class="btn btn-danger btn-xs"
                             	data-toggle="tooltip" 

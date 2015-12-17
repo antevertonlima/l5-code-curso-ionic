@@ -33,7 +33,7 @@ class CategoryAdminController extends Controller
     {
         $inputs = $request->all();
         $this->repository->create($inputs);
-        return redirect()->route('adminCategory');
+        return redirect()->route('admin.category.index');
     }
 
     public function edit($category_id)
@@ -46,13 +46,13 @@ class CategoryAdminController extends Controller
     {
         $inputs = $request->all();
         $this->repository->update($inputs, $category_id);
-        return redirect()->route('adminCategory');
+        return redirect()->route('admin.category.index');
     }
 
     public function destroy($category_id)
     {
         $category = $this->repository->find($category_id);
         $category->delete();
-        return redirect()->route('adminCategory');
+        return redirect()->route('admin.category.index');
     }
 }

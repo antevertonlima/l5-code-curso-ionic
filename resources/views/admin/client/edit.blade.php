@@ -25,7 +25,7 @@
             </ul>
         @endif
         
-        {!! Form::model($client,['route' => ['adminClientUpdate', $client->id], 
+        {!! Form::model($client,['route' => ['admin.client.update', $client->id],
                                  'class' => 'form-horizontal form-label-left']) !!}
 
         @include('admin.client._form')

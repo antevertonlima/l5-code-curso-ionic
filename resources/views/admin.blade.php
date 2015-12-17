@@ -73,21 +73,29 @@
                             <li><a><i class="fa fa-windows"></i> Gerenciar <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none">
                                     <li>
-                                        <a href="{{ route('adminClient') }}">Clientes</a>
+                                        <a href="{{ route('admin.client.index') }}">Clientes</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('adminCategory') }}">Categorias</a>
+                                        <a href="{{ route('admin.category.index') }}">Categorias</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('adminProduct') }}">Produtos</a>
+                                        <a href="{{ route('admin.product.index') }}">Produtos</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('orders.index') }}">Pedidos</a>
+                                        <a href="{{ route('admin.orders.index') }}">Pedidos</a>
                                     </li>
                                     <li>
-                                        <a href="pricing_tables.html">Pricing Tables</a>
+                                        <a href="{{ route('admin.cupoms.index') }}">Cupons</a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none">
+                                    <li>
+                                        <a href="{{ route('customer.order.index') }}">Meus Pedidos</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
 
@@ -290,6 +298,8 @@
 <script src="{{ asset('/assets/js/moris/raphael-min.js') }}"></script>
 <script src="{{ asset('/assets/js/moris/morris.js') }}"></script>
 <script src="{{ asset('/assets/js/moris/example.js') }}"></script>
+
+@yield('post-script')
 
 </body>
 

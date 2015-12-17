@@ -10,7 +10,7 @@
 
 @section('optionsPainel')
     <li>
-        <a href="{{ route('adminCreateProduct') }}" data-toggle="tooltip"
+        <a href="{{ route('admin.product.create') }}" data-toggle="tooltip"
            data-placement="right" title=""
            data-original-title="Adicionar Novo Produto">
             <i class="fa fa-plus-circle fa-2x"></i>
@@ -39,7 +39,7 @@
                         <td>{{ $products->category->name }}</td>
                         <td>{{ $products->price }}</td>
 	        			<td>
-                            <a href="{{ route('adminProductEdit',
+                            <a href="{{ route('admin.product.edit',
                             				 ['product_id' => $products->id ]) }}"
 							   class="btn btn-info btn-xs"
                             	data-toggle="tooltip" 
@@ -47,7 +47,7 @@
                             	data-original-title="Editar Produtos">
                             	<i class="fa fa-pencil"></i>  
                             </a>
-                            <a href="{{ route('adminProductDestroy',
+                            <a href="{{ route('admin.product.destroy',
                             				 [ 'product_id' => $products->id ]) }}"
 							   class="btn btn-danger btn-xs"
                             	data-toggle="tooltip" 

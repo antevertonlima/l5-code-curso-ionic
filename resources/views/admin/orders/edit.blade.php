@@ -32,7 +32,7 @@
         
         <div class="ln_solid"></div>
 
-        {!! Form::model($orders,['route' => ['orders.update', $orders->id], 'class' => 'form-horizontal form-label-left']) !!}
+        {!! Form::model($orders,['route' => ['admin.orders.update', $orders->id], 'class' => 'form-horizontal form-label-left']) !!}
 
         @include('admin.orders._form')
 
