@@ -8,12 +8,25 @@ Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });
 
+//rotas API
+Route::group([
+    'prefix' => 'api',
+    'as' => 'api.',
+    'middleware' => 'oauth'], function(){
+
+    Route::get('teste', function(){
+        return [
+            'title' => 'Teste',
+            'description' => 'Apenas um teste de autenticaçao da api!'
+        ];
+    });
+});
+
 //rotas administrativas
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'middleware' => 'auth.checkrole'/*, 
-    'as' => 'admin.'*/], function(){
+    'middleware' => 'auth.checkrole'], function(){
 
     Route::group(['prefix' => 'client'], function(){
         Route::get('', [
