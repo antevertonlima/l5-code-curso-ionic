@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "62f59a49f94aced79c2111b5f115ebaa",
-    "content-hash": "8aa2a68d6d7733d27c64b556d9ebf6de",
+    "hash": "f795a04b8ce6a115e6d3f257fec4c60a",
+    "content-hash": "c577db20f155584fdd125ffd1e320fde",
     "packages": [
         {
             "name": "bestmomo/scafold",
@@ -59,7 +59,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/4257542255b04ea4a7d844c61453987ba313daf6",
+                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/de1d55df4f492374f0b77eb06da990b7393a433f",
                 "reference": "4257542255b04ea4a7d844c61453987ba313daf6",
                 "shasum": ""
             },
@@ -402,7 +402,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/29a88be2a4846d27c1613aed0c9071dfad7b5938",
+                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/6fe8ad066d3b2b01ad71d2130ebd38ccaabd549f",
                 "reference": "29a88be2a4846d27c1613aed0c9071dfad7b5938",
                 "shasum": ""
             },
@@ -460,7 +460,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a74a60697d370debfc9fd53ba2c4ba4c7fc68c3f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/117fa69e9a5ec9479a1af0f98d30d859f81c9760",
                 "reference": "425fe00dd4e22469ddb5efaf2734c51677b40c84",
                 "shasum": ""
             },
@@ -588,7 +588,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/event/zipball/36920cc97c1e506b07f979337a49c4dd02d57045",
+                "url": "https://api.github.com/repos/thephpleague/event/zipball/ebc612ba587ab9411ffefa276d72398c57517c50",
                 "reference": "36920cc97c1e506b07f979337a49c4dd02d57045",
                 "shasum": ""
             },
@@ -638,7 +638,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/183e1a610664baf6dcd6fceda415baf43cbdc031",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/66c17c1f421d84df01074f4a685cef074173951d",
                 "reference": "0888b18acf3d21197756516cffdc4a70ed9e9eb3",
                 "shasum": ""
             },
@@ -711,6 +711,69 @@
                 "storage"
             ],
             "time": "2015-12-12 10:36:24"
+        },
+        {
+            "name": "league/fractal",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/fractal.git",
+                "reference": "1a78f76c004009761e9a686f53239ac942bd1ca2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/1a78f76c004009761e9a686f53239ac942bd1ca2",
+                "reference": "1a78f76c004009761e9a686f53239ac942bd1ca2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "illuminate/contracts": "~5.0",
+                "mockery/mockery": "~0.9",
+                "pagerfanta/pagerfanta": "~1.0.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5",
+                "zendframework/zend-paginator": "~2.3"
+            },
+            "suggest": {
+                "illuminate/pagination": "The Illuminate Pagination component.",
+                "pagerfanta/pagerfanta": "Pagerfanta Paginator",
+                "zendframework/zend-paginator": "Zend Framework Paginator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Fractal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Sturgeon",
+                    "email": "me@philsturgeon.uk",
+                    "homepage": "http://philsturgeon.uk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle the output of complex data structures ready for API output.",
+            "homepage": "http://fractal.thephpleague.com/",
+            "keywords": [
+                "api",
+                "json",
+                "league",
+                "rest"
+            ],
+            "time": "2016-03-09 14:13:52"
         },
         {
             "name": "league/oauth2-server",
@@ -1022,7 +1085,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/719ca71d4ac80e1985dcd91dd8ec5a47db58ad80",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/eb4bfe1366364e1fb0c2313156553336a92ff5e7",
                 "reference": "719ca71d4ac80e1985dcd91dd8ec5a47db58ad80",
                 "shasum": ""
             },
@@ -1121,7 +1184,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/7de07b2e183322adf88a6dca38bcfe7f8fe82b08",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/d5b49ff57775d8d23cf11fb7d49887e273375580",
                 "reference": "7de07b2e183322adf88a6dca38bcfe7f8fe82b08",
                 "shasum": ""
             },
@@ -1181,7 +1244,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/9e45edca52cc9c954680072c93e621f8b71fab26",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d8e60a5619fff77f9669da8997697443ef1a1d7e",
                 "reference": "9e45edca52cc9c954680072c93e621f8b71fab26",
                 "shasum": ""
             },
@@ -1299,7 +1362,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/6522539daf0a7bdada1cc2dccb7ec37dc0712136",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/fffbc0e2a7e376dbb0a4b5f2ff6847330f20ccf9",
                 "reference": "6522539daf0a7bdada1cc2dccb7ec37dc0712136",
                 "shasum": ""
             },
@@ -1352,7 +1415,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/4e35a78f932a4c07bd349efea647ac741c1419b6",
+                "url": "https://api.github.com/repos/symfony/console/zipball/6100a40569b2be1b6aba1cc6a92fe6cb71024fc8",
                 "reference": "7fb8a8c9756690171ecd0521e3bbaef377f2bed9",
                 "shasum": ""
             },
@@ -1411,7 +1474,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/35bebec48d3d08e3138257419e3ca84070152012",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/b6e5e9087ed7affbd4c38948da8f93513a87de43",
                 "reference": "35bebec48d3d08e3138257419e3ca84070152012",
                 "shasum": ""
             },
@@ -1464,7 +1527,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/e131370c3c657697433320d115d8d999ee408542",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/ef78aaaa3e54d2e4b873cc4c7d591969f9bf0b5f",
                 "reference": "e131370c3c657697433320d115d8d999ee408542",
                 "shasum": ""
             },
@@ -1521,7 +1584,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/b33593cbfe1d81b50d48353f338aca76a08658d8",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/f7cbc7b68f5c55615f752b6dd80ba1403b2eab83",
                 "reference": "b33593cbfe1d81b50d48353f338aca76a08658d8",
                 "shasum": ""
             },
@@ -1576,7 +1639,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a5eb815363c0388e83247e7e9853e5dbc14999cc",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/47d2d8cade9b1c3987573d2943bb9352536cdb87",
                 "reference": "a5eb815363c0388e83247e7e9853e5dbc14999cc",
                 "shasum": ""
             },
@@ -1636,7 +1699,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/937edcbac3f2dd3187c56cf90368867d55dee991",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/0bacc7c9fc1905cfce20212633013a5b300dce52",
                 "reference": "937edcbac3f2dd3187c56cf90368867d55dee991",
                 "shasum": ""
             },
@@ -1685,7 +1748,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/cf11faac7df5384bb14774ad7266add227e10ec1",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/b69b6e103712870a3137e9132115d800b2713aac",
                 "reference": "d9e94557513a7e7cd733bef1d16a38e3bb6937e4",
                 "shasum": ""
             },
@@ -1740,7 +1803,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/786eb40b0178a545f1d894a7b81738c308b8d9ed",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/cbfda0e775dca1a185034b1e3c42c1d36a490bf9",
                 "reference": "0a1c03e20392881f06150364ac651af3187749da",
                 "shasum": ""
             },
@@ -1822,7 +1885,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/e2e77609a9e2328eb370fbb0e0d8b2000ebb488f",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/4d891fff050101a53a4caabb03277284942d1ad9",
                 "reference": "a6bd4770a6967517e6610529e14afaa3111094a3",
                 "shasum": ""
             },
@@ -1878,7 +1941,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/4271c55cbc0a77b2641f861b978123e46b3da969",
+                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/8de62801aa12bc4dfcf85eef5d21981ae7bb3cc4",
                 "reference": "4271c55cbc0a77b2641f861b978123e46b3da969",
                 "shasum": ""
             },
@@ -1930,7 +1993,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/a3fb8f4c4afc4f1b285de5df07e568602934f525",
+                "url": "https://api.github.com/repos/symfony/process/zipball/19beeea4abd3b1566a1e6cdb15f72d0bae2e1fff",
                 "reference": "322af2321957e446534258ff04e66b80b821ea84",
                 "shasum": ""
             },
@@ -1979,7 +2042,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/2c100bd94be50e2a1fce7fe1ac534e28776c24ff",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/f3fad0ea232dcce8cd20388db5a4f492f9a24ed5",
                 "reference": "2becb03b52b4c63a9a622bfa654a555bfed287d3",
                 "shasum": ""
             },
@@ -2052,7 +2115,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/e7e95debf0465f7886d2994cd808f9382adb423c",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/e75d88c9af3c9c06341f4dad7ce776c9bddf94de",
                 "reference": "e7e95debf0465f7886d2994cd808f9382adb423c",
                 "shasum": ""
             },
@@ -2115,7 +2178,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/ec3233d755578c56612c13d81d4ef141f8f94e9e",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c88d135c41c10d178e9724c69cbf699c5112883d",
                 "reference": "ec3233d755578c56612c13d81d4ef141f8f94e9e",
                 "shasum": ""
             },
@@ -2276,7 +2339,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/3037df47eca2e534f62f061415a071f9b5d1a1a4",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/68c0d749b7a9bb527a7b0d3226fa397f26005955",
                 "reference": "3037df47eca2e534f62f061415a071f9b5d1a1a4",
                 "shasum": ""
             },
@@ -2597,7 +2660,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/53e967bf312c21f78ec3a19c530d98e1bdb5b26f",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/b02221e42163be673f9b44a0bc92a8b4907a7c6d",
                 "reference": "e871a2a0cf62b56c36b4781e99b50c6bf08fab77",
                 "shasum": ""
             },
@@ -2897,7 +2960,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ea76b17bced0500a28098626b84eda12dbcf119c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1a1b63266c046e1856fd03812a4e0ac2b51aa2d5",
                 "reference": "ea76b17bced0500a28098626b84eda12dbcf119c",
                 "shasum": ""
             },
@@ -3141,7 +3204,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6e7133793a8e5a5714a551a8324337374be209df",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/dc7a29032cf72b54f36dac15a1ca5b3a1b6029bf",
                 "reference": "6e7133793a8e5a5714a551a8324337374be209df",
                 "shasum": ""
             },
@@ -3309,7 +3372,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/913401df809e99e4f47b27cdd781f4a258d58791",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/7ff5b1b3dcc55b8ab8ae61ef99d4730940856ee7",
                 "reference": "913401df809e99e4f47b27cdd781f4a258d58791",
                 "shasum": ""
             },
@@ -3397,7 +3460,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/1fc25bfc8cdf663a1d1474b31a0657dc2d48c246",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/38aebd1045f91caaf25db0164e2703b21fb5359d",
                 "reference": "8bae579c7afa252c055855f071c751eb75dcf6c4",
                 "shasum": ""
             },

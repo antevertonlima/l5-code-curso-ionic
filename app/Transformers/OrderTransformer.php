@@ -24,7 +24,6 @@ class OrderTransformer extends TransformerAbstract
         return [
             'id'         => (int)$model->id,
             'total'      => (float) $model->total,
-
             'created_at' => $model->created_at,
             'updated_at' => $model->updated_at
         ];
@@ -32,8 +31,9 @@ class OrderTransformer extends TransformerAbstract
 
     public function includeCupom(Order $model)
     {
-        if (!$model->cupom)
+        if (!$model->cupom){
             return null;
+        }
         return $this->item($model->cupom, new CupomTransformer());
     }
 

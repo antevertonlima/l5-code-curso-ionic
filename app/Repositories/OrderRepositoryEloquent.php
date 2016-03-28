@@ -30,4 +30,9 @@ class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function presenter()
+    {
+        return \CodeDelivery\Presenters\OrderPresenter::class;
+    }
 }

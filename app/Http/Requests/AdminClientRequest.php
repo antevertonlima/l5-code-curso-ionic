@@ -25,7 +25,7 @@ class AdminClientRequest extends Request
     {
         return [
             'user.name' => 'required|min:3',
-            'user.email' => 'required'
+            'user.email' => 'required|email'
         ];
     }
 }
