@@ -11,7 +11,7 @@ use CodeDelivery\Models\Order;
  */
 class OrderTransformer extends TransformerAbstract
 {
-    //protected $defaultIncludes = ['cupom','items'];
+    //protected $defaultIncludes   = ['cupom','items'];
     protected $availableIncludes = ['cupom','items','client'];
 
     /**
