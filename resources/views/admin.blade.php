@@ -35,67 +35,7 @@
 
 <body class="nav-md">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="container body">
-
 
     <div class="main_container">
 
@@ -109,17 +49,31 @@
                 </div>
                 <div class="clearfix"></div>
 
-                <!-- menu prile quick info -->
-                <div class="profile">
-                    <div class="profile_pic">
-                        <img src="{{ asset('assets/images/img.jpg') }}" alt="..." class="img-circle profile_img">
+                @if( Auth::check() )
+                    <!-- menu prile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <img src="https://avatars0.githubusercontent.com/u/5508160?v=3&s=460" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Bem Vindo,</span>
+                            <h2>{{ Auth::user()->name }} !</h2>
+                        </div>
                     </div>
-                    <div class="profile_info">
-                        <span>Bem Vindo,</span>
-                        <h2>Everton Lima</h2>
+                    <!-- /menu prile quick info -->
+                @else
+                    <!-- menu prile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <img src="https://aninaland.files.wordpress.com/2010/04/34.jpg?w=640" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Bem Vindo,</span>
+                            <h2>Visitante !</h2>
+                        </div>
                     </div>
-                </div>
-                <!-- /menu prile quick info -->
+                    <!-- /menu prile quick info -->
+                @endif
 
                 <br />
 
@@ -175,8 +129,14 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset('assets/images/img.jpg') }}" alt="">John Doe
+                            @if(Auth::check())
+                                <img src="https://avatars0.githubusercontent.com/u/5508160?v=3&s=460" alt="">
+                                {{ Auth::user()->name }}
                                 <span class=" fa fa-angle-down"></span>
+                            @else
+                                <img src="https://aninaland.files.wordpress.com/2010/04/34.jpg?w=640" alt="">Visitante
+                                <span class=" fa fa-angle-down"></span>
+                            @endif
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                                 <li><a href="javascript:;">  Profile</a>
@@ -190,7 +150,16 @@
                                 <li>
                                     <a href="javascript:;">Help</a>
                                 </li>
-                                <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li>
+                                    @if(Auth::check())
+                                        <a href="{{ url('/auth/logout') }}">
+                                            <i class="fa fa-sign-out pull-right"></i> Log Out
+                                        </a>
+                                    @else
+                                        <a href="{{ Auth::logout() }}">
+                                            <i class="fa fa-sign-out pull-right"></i> Log Out
+                                        </a>
+                                    @endif
                                 </li>
                             </ul>
                         </li>
@@ -204,7 +173,7 @@
                                 <li>
                                     <a>
                                             <span class="image">
-                                        <img src="{{ asset('assets/images/img.jpg') }}" alt="Profile Image" />
+                                        <img src="https://avatars0.githubusercontent.com/u/5508160?v=3&s=460" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>
@@ -218,7 +187,7 @@
                                 <li>
                                     <a>
                                             <span class="image">
-                                        <img src="{{ asset('assets/images/img.jpg') }}" alt="Profile Image" />
+                                        <img src="https://avatars0.githubusercontent.com/u/5508160?v=3&s=460" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>
@@ -232,7 +201,7 @@
                                 <li>
                                     <a>
                                             <span class="image">
-                                        <img src="{{ asset('assets/images/img.jpg') }}" alt="Profile Image" />
+                                        <img src="https://avatars0.githubusercontent.com/u/5508160?v=3&s=460" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>
@@ -246,7 +215,7 @@
                                 <li>
                                     <a>
                                             <span class="image">
-                                        <img src="{{ asset('assets/images/img.jpg') }}" alt="Profile Image" />
+                                        <img src="https://avatars0.githubusercontent.com/u/5508160?v=3&s=460" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>

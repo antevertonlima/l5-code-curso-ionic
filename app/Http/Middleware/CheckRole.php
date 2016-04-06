@@ -21,7 +21,7 @@ class CheckRole
             return redirect('/auth/login');
         }
 
-        if(Auth::user()->role <> $role) { //se a role do usuário autenticado bate com a $role que passamos
+        if(Auth::user()->role != $role) { //se a role do usuário autenticado bate com a $role que passamos
             return redirect('/auth/login');
         }
 
