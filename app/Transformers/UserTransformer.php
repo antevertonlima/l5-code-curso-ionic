@@ -3,7 +3,7 @@
 namespace CodeDelivery\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use CodeDelivery\Entities\User;
+use CodeDelivery\Models\User;
 
 /**
  * Class UserTransformer

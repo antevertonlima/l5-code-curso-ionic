@@ -13,6 +13,8 @@ use CodeDelivery\Models\User;
  */
 class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {
+    //protected $skipPresenter = true;
+
     public function getDeliverymen()
     {
         return $this->model->where(['role' => 'deliveryman'])->lists('name','id');
@@ -33,5 +35,10 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    public function presenter()
+    {
+        return \CodeDelivery\Presenters\UserPresenter::class;
     }
 }
