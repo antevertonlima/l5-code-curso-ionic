@@ -13,7 +13,7 @@ use CodeDelivery\Models\User;
  */
 class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {
-    //protected $skipPresenter = true;
+    protected $skipPresenter = true;
 
     public function getDeliverymen()
     {
