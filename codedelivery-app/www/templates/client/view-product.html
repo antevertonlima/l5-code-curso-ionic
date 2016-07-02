@@ -1,10 +1,17 @@
 <ion-view>
 
-    <ion-nav-title>
-        Client View Product
-    </ion-nav-title>
-
-    <ion-content>
-        Estamos na View Product
+    <ion-nav-title> Nossos Produtos </ion-nav-title>
+	<div class="bar bar-subheader">
+		<h2 class="title">Escolha Seu Produto!</h2>
+	</div>
+    <ion-content class="padding has-subheader">
+        <ion-list>
+            <ion-item ng-repeat="p in products">
+                {{ p.name }}
+                <span class="item-note">
+                	<i class="ion ion-cash"> {{ p.price }}</i>
+                </span>
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
