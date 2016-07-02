@@ -21,8 +21,9 @@ class ProductTransformer extends TransformerAbstract
     public function transform(Product $model) {
         return [
             'id'            => (int)$model->id,
-            'name'          => (string)$model->name,
-            'price'         => (float)$model->price
+            'name'          => $model->name,
+            'description'   => $model->description,
+            'price'         => $model->price
         ];
     }
 }

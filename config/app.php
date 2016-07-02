@@ -155,6 +155,11 @@ return [
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
 
         /*
+         * Liberando CORS
+         */
+        Barryvdh\Cors\ServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         CodeDelivery\Providers\AppServiceProvider::class,
