@@ -1,7 +1,7 @@
 angular.module('starter.controllers')
 .controller('ClientViewProductCtrl',
-	['$scope', '$state', 'Product', '$ionicLoading',
-    function($scope, $state, Product, $ionicLoading){
+	['$scope', '$state', 'Product', '$ionicLoading','$localStorage',
+    function($scope, $state, Product, $ionicLoading, $localStorage){
         $scope.products = [];
         $ionicLoading.show({
         	template: 'Caregando...'
