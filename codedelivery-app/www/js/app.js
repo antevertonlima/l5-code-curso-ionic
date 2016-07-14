@@ -67,12 +67,13 @@ angular.module('starter',
         .state('client',{
           abstract: true,
           url: '/client',
-          template:'<ui-view/>'
+          templateUrl: 'templates/client/menu.html',
+          controller: 'ClientMenuCtrl'
         })
         .state('client.checkout_item_detail',{
           url:'/checkout/detail/:index',
           templateUrl: 'templates/client/checkout-detail.html',
-            controller: 'ClientCheckoutDetailCtrl'
+          controller: 'ClientCheckoutDetailCtrl'
         })
         .state('client.view_products',{
           url:'/view_products',
