@@ -6,7 +6,7 @@
 angular.module('starter.controllers',[]);
 angular.module('starter.services',[]);
 
-angular.module('starter', 
+angular.module('starter',
   ['ionic','starter.controllers','starter.services','angular-oauth2','ngResource'])
 
 .constant('appConfig', {
@@ -48,7 +48,7 @@ angular.module('starter',
             secure : false
         }
     });
-    
+
     $stateProvider
         // .state('inicio', {
         //     url: '/',
@@ -70,20 +70,32 @@ angular.module('starter',
           templateUrl: 'templates/client/menu.html',
           controller: 'ClientMenuCtrl'
         })
+        .state('client.checkout',{
+            cache: false,
+            url:'/checkout',
+            templateUrl: 'templates/client/checkout.html',
+            controller: 'ClientCheckoutCtrl'
+        })
         .state('client.checkout_item_detail',{
           url:'/checkout/detail/:index',
           templateUrl: 'templates/client/checkout-detail.html',
           controller: 'ClientCheckoutDetailCtrl'
+        })
+        .state('client.checkout_successful',{
+            url:'/checkout/successful',
+            templateUrl: 'templates/client/checkout-successful.html',
+            controller: 'ClientCheckoutSuccessfulCtrl'
+        })
+        .state('client.orders',{
+            url:'/orders',
+            templateUrl: 'templates/client/orders.html',
+            controller: 'ClientOrdersCtrl'
         })
         .state('client.view_products',{
           url:'/view_products',
           templateUrl: 'templates/client/view-product.html',
             controller: 'ClientViewProductCtrl'
         })
-        .state('client.checkout',{
-          url:'/checkout',
-          templateUrl: 'templates/client/checkout.html',
-            controller: 'ClientCheckoutCtrl'
-        })
 
-}); 
+
+});

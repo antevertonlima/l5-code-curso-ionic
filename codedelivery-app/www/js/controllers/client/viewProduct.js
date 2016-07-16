@@ -3,10 +3,7 @@ angular.module('starter.controllers')
 	['$scope', '$state', 'Product', '$ionicLoading', '$localStorage', '$cart',
     function($scope, $state, Product, $ionicLoading, $localStorage, $cart){
         $scope.products = [];
-        $ionicLoading.show({
-        	template: 'Caregando...'
-        });
-
+        $ionicLoading.show({ template: 'Carregando...' });
         Product.query({},function(data){
         	$scope.products = data.data;
         	$ionicLoading.hide();
