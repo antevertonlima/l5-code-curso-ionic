@@ -4,7 +4,29 @@ angular.module('starter.controllers')
     function($scope, $state, $ionicPopup, $cart, Order, $ionicLoading){
     	$scope.orders = [];
 		$ionicLoading.show({ template: 'Carregando...' });
-		Order.query({id: null},function(data){
+		$scope.doRefresh = function () {
+			getOrders().then(function(data){
+				$scope.orders = data.data;
+				$scope.$broadcast('scroll.refreshComplete');
+			},function(dataError){
+				$scope.$broadcast('scroll.refreshComplete');
+				$ionicPopup.alert({
+					title: 'Advertência',
+					template: 'Ocorreu um erro ao resgatar seus pedidos!'
+				})
+			});
+		}
+		$scope.openOrderDetail = function (order) {
+			$state.go('client.orders_detail', {id: order.id});
+		}
+		function getOrders(){
+			return Order.query({
+				id: null,
+				orderBy: 'created_at',
+				sortedBy: 'desc'
+			}).$promise;
+		}
+		getOrders().then(function(data){
 			$scope.orders = data.data;
 			$ionicLoading.hide();
 		},function(dataError){

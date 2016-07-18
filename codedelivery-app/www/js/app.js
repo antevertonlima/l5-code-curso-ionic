@@ -5,9 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter.controllers',[]);
 angular.module('starter.services',[]);
+angular.module('starter.filters',[]);
 
 angular.module('starter',
-  ['ionic','starter.controllers','starter.services','angular-oauth2','ngResource'])
+  ['ionic','starter.controllers','starter.services','starter.filters','angular-oauth2','ngResource'])
 
 .constant('appConfig', {
   baseUrl: 'http://codedelivery',
@@ -82,6 +83,7 @@ angular.module('starter',
           controller: 'ClientCheckoutDetailCtrl'
         })
         .state('client.checkout_successful',{
+            cache: false,
             url:'/checkout/successful',
             templateUrl: 'templates/client/checkout-successful.html',
             controller: 'ClientCheckoutSuccessfulCtrl'
@@ -90,6 +92,11 @@ angular.module('starter',
             url:'/orders',
             templateUrl: 'templates/client/orders.html',
             controller: 'ClientOrdersCtrl'
+        })
+        .state('client.orders_detail',{
+            url:'/orders_detail/:id',
+            templateUrl: 'templates/client/order-detail.html',
+            controller: 'ClientOrderDetailCtrl'
         })
         .state('client.view_products',{
           url:'/view_products',

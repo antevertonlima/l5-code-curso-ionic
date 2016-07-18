@@ -1,7 +1,7 @@
 angular.module('starter.services')
-.factory('Order',['$resource', 'appConfig',
+.factory('Cupom',['$resource', 'appConfig',
     function($resource, appConfig){
-		return $resource(appConfig.baseUrl + '/api/client/order/:id', {id: '@id'}, {
+		return $resource(appConfig.baseUrl + '/api/cupom/:code', {code: '@code'}, {
         	query: {
         		isArray: false
         	}

@@ -16,6 +16,8 @@ Route::group(['middleware' => 'cors'], function(){
 
         Route::get('authenticated',['uses' => 'Api\LoggedController@index']);
 
+        Route::get('cupom/{code}', ['uses' => 'Api\CupomController@show']);
+        
         //API CLIENT
         Route::group(['prefix' => 'client','as' => 'client.','middleware' => 'oauth.checkrole:client'], function(){
             Route::resource('order','Api\Client\ClientCheckoutController', ['except' => ['create', 'edit', 'destroy']]);

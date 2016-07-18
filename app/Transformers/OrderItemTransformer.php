@@ -11,7 +11,7 @@ use CodeDelivery\Models\OrderItem;
  */
 class OrderItemTransformer extends TransformerAbstract
 {
-
+    protected $defaultIncludes   = ['product'];
     /**
      * Transform the OrderItem entity
      * @param OrderItem $model
@@ -20,8 +20,18 @@ class OrderItemTransformer extends TransformerAbstract
      */
     public function transform(OrderItem $model) {
         return [
-            'price'         => (float)$model->price,
-            'qtd'           => (int)$model->qtd
+            'id'         => (int)$model->id,
+            'product_id' => (int)$model->product_id,
+            'price'      => (float)$model->price,
+            'qtd'        => (int)$model->qtd
         ];
+    }
+
+    public function includeProduct(OrderItem $model)
+    {
+        if (!$model->product){
+            return null;
+        }
+        return $this->item($model->product, new ProductTransformer());
     }
 }
