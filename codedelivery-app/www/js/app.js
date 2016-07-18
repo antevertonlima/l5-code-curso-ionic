@@ -103,6 +103,36 @@ angular.module('starter',
           templateUrl: 'templates/client/view-product.html',
             controller: 'ClientViewProductCtrl'
         })
-
-
+	
+		$urlRouterProvider.otherwise('/login');
+		
+		$provide.decorator('OAuthToken',['$localStorage', '$delegate', function($localStorage, $delegate){
+			Object.defineProperties($delegate,{
+				setToken: {
+					value: function(data){
+						return $localStorage.setObject('token', data);
+					},
+					enumerable: true,
+					configurable: true,
+					whitable: true
+				},
+				getToken: {
+					value: function(){
+						return $localStorage.getObject('token');
+					},
+					enumerable: true,
+					configurable: true,
+					whitable: true
+				},
+				removeToken:{
+					value: function(){
+						return $localStorage.setObject('token', null);
+					},
+					enumerable: true,
+					configurable: true,
+					whitable: true
+				}
+			});
+			return $delegate;
+		}]);
 });
