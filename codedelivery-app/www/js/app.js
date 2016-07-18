@@ -8,7 +8,7 @@ angular.module('starter.services',[]);
 angular.module('starter.filters',[]);
 
 angular.module('starter',
-  ['ionic','starter.controllers','starter.services','starter.filters','angular-oauth2','ngResource'])
+  ['ionic','starter.controllers','starter.services','starter.filters','angular-oauth2','ngResource','ngCordova'])
 
 .constant('appConfig', {
   baseUrl: 'http://codedelivery',
