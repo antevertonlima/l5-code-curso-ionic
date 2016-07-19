@@ -8,10 +8,11 @@ angular.module('starter.services',[]);
 angular.module('starter.filters',[]);
 
 angular.module('starter',
-  ['ionic','starter.controllers','starter.services','starter.filters','angular-oauth2','ngResource','ngCordova'])
+  ['ionic','starter.controllers','starter.services','starter.filters',
+  'angular-oauth2','ngResource','ngCordova'])
 
 .constant('appConfig', {
-  baseUrl: 'http://codedelivery',
+  baseUrl: 'http://10.240.6.16',
   clientId: 'appid01',
   clientSecret: 'secret', // optional
   grantPath: '/oauth/access_token'
@@ -34,7 +35,8 @@ angular.module('starter',
     }
   });
 })
-.config(function($stateProvider, $urlRouterProvider, OAuthProvider, OAuthTokenProvider, appConfig){
+.config(function($stateProvider, $urlRouterProvider, OAuthProvider, 
+                 OAuthTokenProvider, appConfig, $provide){
     // $urlRouterProvider.otherwise('/');
     OAuthProvider.configure({
         baseUrl: appConfig.baseUrl,
@@ -103,10 +105,11 @@ angular.module('starter',
           templateUrl: 'templates/client/view-product.html',
             controller: 'ClientViewProductCtrl'
         })
-	
+
 		$urlRouterProvider.otherwise('/login');
-		
-		$provide.decorator('OAuthToken',['$localStorage', '$delegate', function($localStorage, $delegate){
+
+		$provide.decorator('OAuthToken',['$localStorage', '$delegate', 
+    function($localStorage, $delegate){
 			Object.defineProperties($delegate,{
 				setToken: {
 					value: function(data){

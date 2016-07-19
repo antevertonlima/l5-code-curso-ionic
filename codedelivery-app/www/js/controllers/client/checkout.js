@@ -38,8 +38,7 @@ angular.module('starter.controllers')
 			});
 		};
 		$scope.readBarCode = function () {
-			$cordovaBarcodeScanner
-			  .scan()
+			$cordovaBarcodeScanner.scan()
 			  .then(function(barcodeData) {
 				getValueCupom(barcodeData.text);
 			  }, function(error) {
