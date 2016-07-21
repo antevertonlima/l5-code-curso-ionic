@@ -12,7 +12,7 @@ angular.module('starter',
   'angular-oauth2','ngResource','ngCordova'])
 
 .constant('appConfig', {
-  baseUrl: 'http://10.240.6.16',
+  baseUrl: 'http://192.168.25.3',
   clientId: 'appid01',
   clientSecret: 'secret', // optional
   grantPath: '/oauth/access_token'
@@ -104,6 +104,23 @@ angular.module('starter',
           url:'/view_products',
           templateUrl: 'templates/client/view-product.html',
             controller: 'ClientViewProductCtrl'
+        })
+        .state('deliveryman',{
+          abstract: true,
+          url: '/deliveryman',
+          templateUrl: 'templates/deliveryman/menu.html',
+          controller: 'DeliverymanMenuCtrl'
+        })
+        .state('deliveryman.order',{
+            url:'/order',
+            templateUrl: 'templates/deliveryman/order.html',
+            controller: 'DeliverymanOrderCtrl'
+        })
+        .state('deliveryman.view_order',{
+            cache: false,
+            url:'/view_order/:id',
+            templateUrl: 'templates/deliveryman/view_order.html',
+            controller: 'DeliverymanViewOrderCtrl'
         })
 
 		$urlRouterProvider.otherwise('/login');

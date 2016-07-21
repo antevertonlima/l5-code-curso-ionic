@@ -56,10 +56,19 @@ angular.module('starter.controllers')
 		function getValueCupom(code) {
 			$ionicLoading.show({ template: 'Carregando...' });
 			Cupom.get({code: code},function (data) {
-				$cart.setCupom(data.data.code, data.data.value);
-				$scope.cupom = $cart.get().cupom;
-				$scope.total = $cart.getTotalFinal();
-				$ionicLoading.hide();
+				var cupomCode = data.data.code, cupomValue = data.data.value;
+				if (cupomValue > $scope.total) {
+					$cart.setCupom(cupomCode, cupomValue);
+					$scope.cupom = $cart.get().cupom;
+					$scope.total = $cart.getTotalFinal();
+					$ionicLoading.hide();
+				} else(){
+					$ionicLoading.hide();
+					$ionicPopup.alert({
+						title: 'Advertência',
+						template: 'Para utilizar este cupom você precisa adicionar mais  itens ao seu pedido!'
+					});
+				}
 			},function (responseError) {
 				$ionicLoading.hide();
 				$ionicPopup.alert({
