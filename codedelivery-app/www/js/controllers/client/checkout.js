@@ -1,7 +1,7 @@
 angular.module('starter.controllers')
 .controller('ClientCheckoutCtrl',
-	['$scope', '$state', '$ionicPopup', '$cart', 'Order', '$ionicLoading', 'Cupom', '$cordovaBarcodeScanner',
-    function($scope, $state, $ionicPopup, $cart, Order, $ionicLoading, Cupom, $cordovaBarcodeScanner){
+	['$scope', '$state', '$ionicPopup', '$cart', 'ClientOrder', '$ionicLoading', 'Cupom', '$cordovaBarcodeScanner',
+    function($scope, $state, $ionicPopup, $cart, ClientOrder, $ionicLoading, Cupom, $cordovaBarcodeScanner){
 		var cart = $cart.get();
 		$scope.cupom = cart.cupom;
     	$scope.items = cart.items;
@@ -26,7 +26,7 @@ angular.module('starter.controllers')
 			if ($scope.cupom.value){
 				o.cupom_code = $scope.cupom.code;
 			}
-			Order.save({id: null}, o,function (data) {
+			ClientOrder.save({id: null}, o,function (data) {
 				$ionicLoading.hide();
 				$state.go('client.checkout_successful');
 			},function (resError) {
@@ -62,7 +62,7 @@ angular.module('starter.controllers')
 					$scope.cupom = $cart.get().cupom;
 					$scope.total = $cart.getTotalFinal();
 					$ionicLoading.hide();
-				} else(){
+				} else {
 					$ionicLoading.hide();
 					$ionicPopup.alert({
 						title: 'Advertência',

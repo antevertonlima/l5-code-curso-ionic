@@ -12,7 +12,7 @@ angular.module('starter',
   'angular-oauth2','ngResource','ngCordova'])
 
 .constant('appConfig', {
-  baseUrl: 'http://192.168.25.3',
+  baseUrl: 'http://codedelivery',
   clientId: 'appid01',
   clientSecret: 'secret', // optional
   grantPath: '/oauth/access_token'
@@ -69,6 +69,7 @@ angular.module('starter',
         })
         .state('client',{
           abstract: true,
+          cache: false,
           url: '/client',
           templateUrl: 'templates/client/menu.html',
           controller: 'ClientMenuCtrl'
@@ -107,6 +108,7 @@ angular.module('starter',
         })
         .state('deliveryman',{
           abstract: true,
+          cache: false,
           url: '/deliveryman',
           templateUrl: 'templates/deliveryman/menu.html',
           controller: 'DeliverymanMenuCtrl'
