@@ -26,7 +26,8 @@ class OrderTransformer extends TransformerAbstract
             'total'         => (float) $model->total,
             'product_names' => $this->getArrayProductNames($model->items),
             'qtd'           => $this->getTotalItems($model->items),
-            'status'        => (float) $model->status,
+            'status'        => $model->status,
+            'hash'          => $model->hash,
             'created_at'    => $model->created_at
         ];
     }

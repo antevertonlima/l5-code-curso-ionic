@@ -36,6 +36,7 @@ angular.module('starter.controllers')
 							$state.go('client.orders_detail', {id: order.id});
 							break;
 						case 1:
+							$state.go('client.view_delivery', {id: order.id});
 							break;
 					}
 				}

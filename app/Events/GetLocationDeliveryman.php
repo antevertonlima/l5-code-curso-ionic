@@ -6,7 +6,7 @@ use CodeDelivery\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use CodeDelivery\Models\Geo;
-use CodeDelivery\Models\Order ;
+use CodeDelivery\Models\Order;
 
 class GetLocationDeliveryman extends Event implements ShouldBroadcast
 {
