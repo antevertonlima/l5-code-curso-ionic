@@ -15,7 +15,7 @@ Route::group(['middleware' => 'cors'], function(){
     Route::group(['prefix' => 'api','as' => 'api.','middleware' => 'oauth'], function(){
 
         Route::get('authenticated',['uses' => 'Api\LoggedController@index']);
-
+        Route::patch('device_token',['uses' => 'Api\LoggedController@updateDeviceToken']);
         Route::get('cupom/{code}', ['uses' => 'Api\CupomController@show']);
         
         //API CLIENT

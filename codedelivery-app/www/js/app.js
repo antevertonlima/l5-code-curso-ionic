@@ -8,7 +8,7 @@ angular.module('starter.services',[]);
 angular.module('starter.filters',[]);
 
 angular.module('starter',
-  ['ionic','starter.controllers','starter.services','starter.filters',
+  ['ionic','ionic.service.core','starter.controllers','starter.services','starter.filters',
   'angular-oauth2','ngResource','ngCordova','uiGmapgoogle-maps','pusher-angular'])
 
 .constant('appConfig', {
@@ -19,7 +19,7 @@ angular.module('starter',
   pusherKey: '81c37eda1a576a3e1b58'
 })
 
-.run(function($ionicPlatform, $window, appConfig) {
+.run(function($ionicPlatform, $window, appConfig, $localStorage) {
   $window.client = new Pusher(appConfig.pusherKey);
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -35,6 +35,13 @@ angular.module('starter',
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    Ionic.io();
+    var push = new Ionic.Push({
+      debug: true
+    });
+    push.register(function(token){
+      $localStorage.set('device_token',token.token)
+    })
   });
 })
 .config(function($stateProvider, $urlRouterProvider, OAuthProvider, 
