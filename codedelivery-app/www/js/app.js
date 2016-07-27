@@ -12,11 +12,15 @@ angular.module('starter',
   'angular-oauth2','ngResource','ngCordova','uiGmapgoogle-maps','pusher-angular'])
 
 .constant('appConfig', {
-  baseUrl: 'http://codedelivery',
+  baseUrl: 'http://192.168.25.3',
   clientId: 'appid01',
   clientSecret: 'secret', // optional
   grantPath: '/oauth/access_token',
-  pusherKey: '81c37eda1a576a3e1b58'
+  pusherKey: '81c37eda1a576a3e1b58',
+  redirectAfterLogin: {
+      client: 'client.orders',
+      deliveryman: 'deliveryman.order'
+  }
 })
 
 .run(function($ionicPlatform, $window, appConfig, $localStorage) {
@@ -67,9 +71,14 @@ angular.module('starter',
         //     templateUrl: 'templates/index.html'
         // })
         .state('login', {
+            cache: false,
             url: '/login',
             templateUrl: 'templates/login.html',
             controller: 'LoginCtrl'
+        })
+        .state('logout', {
+            url: '/logout',
+            controller: 'LogoutCtrl'
         })
         .state('home', {
             url: '/',

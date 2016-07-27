@@ -1,7 +1,7 @@
 angular.module('starter.controllers')
 .controller('LoginCtrl',
-    ['$scope', 'OAuth', '$state', '$ionicPopup', 'UserData','Logged', '$localStorage', 
-    function($scope, OAuth, $state, $ionicPopup, UserData, Logged, $localStorage){
+    ['$scope', 'OAuth', '$state', '$ionicPopup', 'UserData','Logged', '$localStorage','$redirect',
+    function($scope, OAuth, $state, $ionicPopup, UserData, Logged, $localStorage, $redirect){
 
         $scope.user = {
             username: '',
@@ -20,12 +20,7 @@ angular.module('starter.controllers')
                 })
                 .then(function(data){
                     UserData.set(data.data);
-                    var user = UserData.get();
-                    if(user.role == 'client'){
-                        $state.go('client.checkout');
-                    }else{
-                        $state.go('deliveryman.order');
-                    }
+                    $redirect.redirectAfterLogin();
                 }, function(responseError) {
                     UserData.set(null);
                     $ionicPopup.alert({

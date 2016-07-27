@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="br.com.doctypesolution.codedeliveryapp248136" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>codedelivery-app</name>
+<widget id="br.com.doctypesolution.codedeliveryapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>CodeDelivery</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Aplicação para realizar pedidos e verificar aonde o entregador está no momento.
     </description>
   <author email="contato@doctypesolution.com.br" href="http://doctypesolution.com.br/">
-      Your Name Here
+      Everton Lima
     </author>
   <content src="index.html"/>
   <access origin="*"/>

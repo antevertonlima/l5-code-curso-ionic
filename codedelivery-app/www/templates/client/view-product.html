@@ -5,12 +5,13 @@
 	</div>
     <ion-content class="padding has-subheader">
         <ion-list>
-            <ion-item ng-repeat="p in products" ng-click="addItem(p)">
+            <ion-item collection-repeat="p in products" ng-click="addItem(p)">
                 {{ p.name }}
                 <span class="item-note">
                 	<i class="ion ion-cash"> {{ p.price }}</i>
                 </span>
             </ion-item>
         </ion-list>
+        <ion-infinite-scroll ng-if="canMoreProducts" on-infinite="loadModel()" distance="1%"></ion-infinite-scroll>
     </ion-content>
 </ion-view>

@@ -3,7 +3,7 @@
     <ion-content class="padding has-header">
         <ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()"></ion-refresher>
         <ion-list>
-            <ion-item ng-repeat="p in orders" ng-click="openOrderDetail(p)" on-hold="showActionSheet(p)">
+            <ion-item collection-repeat="p in orders" ng-click="openOrderDetail(p)" on-hold="showActionSheet(p)">
                 <h2>
                     <i class="ion ion-ios-cart"> {{ p.qtd }} Itens</i>
                 </h2>
@@ -11,7 +11,8 @@
                     <div class="col text-left">
                         <i class="ion ion-android-time"> {{ p.created_at.date | limitTo: 10 | date: 'dd/MM/yyyy' }}</i>
                         <br>
-                        Status: <span ng-if="p.status == 0"> Pendente </span>
+                        Status:
+                        <span ng-if="p.status == 0"> Pendente </span>
                         <span ng-if="p.status == 1"> A Caminho </span>
                         <span ng-if="p.status == 2"> Entregue </span>
                         <span ng-if="p.status == 3"> Cancelado </span> <br/>
@@ -23,6 +24,7 @@
                     </div>
                 </div>
             </ion-item>
+            <ion-infinite-scroll ng-if="canMoreOrders" on-infinite="loadModel()" distance="1%"></ion-infinite-scroll>
         </ion-list>
     </ion-content>
 </ion-view>
