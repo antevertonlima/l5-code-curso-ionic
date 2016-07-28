@@ -6,13 +6,16 @@
 angular.module('starter.controllers',[]);
 angular.module('starter.services',[]);
 angular.module('starter.filters',[]);
+angular.module('starter.run',[]);
 
 angular.module('starter',
-  ['ionic','ionic.service.core','starter.controllers','starter.services','starter.filters',
-  'angular-oauth2','ngResource','ngCordova','uiGmapgoogle-maps','pusher-angular'])
+  ['ionic','ionic.service.core',
+  'starter.controllers','starter.services','starter.filters','starter.run',
+  'angular-oauth2','ngResource','ngCordova','uiGmapgoogle-maps',
+  'pusher-angular','permission'])
 
 .constant('appConfig', {
-  baseUrl: 'http://192.168.25.3',
+  baseUrl: 'http://dtsce.top',
   clientId: 'appid01',
   clientSecret: 'secret', // optional
   grantPath: '/oauth/access_token',
@@ -90,7 +93,12 @@ angular.module('starter',
           cache: false,
           url: '/client',
           templateUrl: 'templates/client/menu.html',
-          controller: 'ClientMenuCtrl'
+          controller: 'ClientMenuCtrl',
+          data: {
+            permissions: {
+              only: ['clientRole']
+            }
+          }
         })
         .state('client.checkout',{
             cache: false,
@@ -135,7 +143,12 @@ angular.module('starter',
           cache: false,
           url: '/deliveryman',
           templateUrl: 'templates/deliveryman/menu.html',
-          controller: 'DeliverymanMenuCtrl'
+          controller: 'DeliverymanMenuCtrl',
+          data: {
+            permissions: {
+              only: ['deliverymanRole']
+            }
+          }
         })
         .state('deliveryman.order',{
             url:'/order',

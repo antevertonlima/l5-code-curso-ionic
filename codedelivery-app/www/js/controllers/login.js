@@ -1,7 +1,7 @@
 angular.module('starter.controllers')
 .controller('LoginCtrl',
-    ['$scope', 'OAuth', '$state', '$ionicPopup', 'UserData','Logged', '$localStorage','$redirect',
-    function($scope, OAuth, $state, $ionicPopup, UserData, Logged, $localStorage, $redirect){
+    ['$scope', 'OAuth', '$state', '$ionicPopup', 'UserData','Logged', '$localStorage','Redirect',
+    function($scope, OAuth, $state, $ionicPopup, UserData, Logged, $localStorage, Redirect){
 
         $scope.user = {
             username: '',
@@ -20,13 +20,13 @@ angular.module('starter.controllers')
                 })
                 .then(function(data){
                     UserData.set(data.data);
-                    $redirect.redirectAfterLogin();
+                    Redirect.redirectAfterLogin();
                 }, function(responseError) {
                     UserData.set(null);
                     $ionicPopup.alert({
                         title: 'Advertência',
                         template: 'Login e/ou senha inválidos'
-                    })
+                    });
                     console.debug(responseError);
                 });
         };

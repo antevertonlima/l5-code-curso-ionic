@@ -1,5 +1,5 @@
 angular.module('starter.services')
-.service('$redirect',['$state','UserData','appConfig',
+.service('Redirect',['$state','UserData','appConfig',
     function($state,UserData,appConfig){
 		var user = UserData.get();
 		this.redirectAfterLogin = function () {
