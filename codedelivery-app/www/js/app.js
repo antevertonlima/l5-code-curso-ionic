@@ -12,10 +12,10 @@ angular.module('starter',
   ['ionic','ionic.service.core',
   'starter.controllers','starter.services','starter.filters','starter.run',
   'angular-oauth2','ngResource','ngCordova','uiGmapgoogle-maps',
-  'pusher-angular','permission'])
+  'pusher-angular','permission','http-auth-interceptor'])
 
 .constant('appConfig', {
-  baseUrl: 'http://dtsce.top',
+  baseUrl: 'http://codedelivery',
   clientId: 'appid01',
   clientSecret: 'secret', // optional
   grantPath: '/oauth/access_token',
@@ -194,4 +194,10 @@ angular.module('starter',
 			});
 			return $delegate;
 		}]);
+
+    $provide.decorator('oauthInterceptor',['$delegate', 
+    function($delegate){
+      delete $delegate['responseError'];
+      return $delegate;
+    }]);
 });
