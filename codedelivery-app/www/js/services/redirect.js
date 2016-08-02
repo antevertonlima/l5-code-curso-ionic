@@ -3,6 +3,6 @@ angular.module('starter.services')
     function($state,UserData,appConfig){
 		var user = UserData.get();
 		this.redirectAfterLogin = function () {
-			$state.go(appConfig.redirectAfterLogin[user.role]);
+			$state.go(appConfig.redirAfterLogin[user.role]);
 		};
 }]);

@@ -18,8 +18,12 @@
                 </p>
             </div>
             <label class="item item-input">
-                <span class="input-label">Quantidade:</span>
-                <input type="text" placeholder="Informe a q'uantidade" ng-model="product.qtd" />
+                <span>Quantidade:</span>
+                <div class="range range-positive">
+                    <i class="icon ion-minus-circled"></i>
+                    <input type="range" ng-model="product.qtd" min="1" max="30" value="1">
+                    <i class="icon ion-plus-circled"></i>
+                </div>
             </label>
             <button type="button" class="button button-assertive button-full" ng-click="updateQtd()">Atualizar</button>
             <div class="item item-body">

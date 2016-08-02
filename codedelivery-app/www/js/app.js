@@ -12,7 +12,7 @@ angular.module('starter',
   ['ionic','ionic.service.core',
   'starter.controllers','starter.services','starter.filters','starter.run',
   'angular-oauth2','ngResource','ngCordova','uiGmapgoogle-maps',
-  'pusher-angular','permission','http-auth-interceptor'])
+  'pusher-angular','permission','http-auth-interceptor','ionic-toast'])
 
 .constant('appConfig', {
   baseUrl: 'http://dtsce.top',
@@ -20,13 +20,13 @@ angular.module('starter',
   clientSecret: 'secret', // optional
   grantPath: '/oauth/access_token',
   pusherKey: '81c37eda1a576a3e1b58',
-  redirectAfterLogin: {
+  redirAfterLogin: {
       client: 'client.orders',
       deliveryman: 'deliveryman.order'
   }
 })
 
-.run(function($ionicPlatform, $window, appConfig, $localStorage) {
+.run(function($ionicPlatform, $window, appConfig, $localStorage,ionicToast) {
   $window.client = new Pusher(appConfig.pusherKey);
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -44,7 +44,10 @@ angular.module('starter',
     }
     Ionic.io();
     var push = new Ionic.Push({
-      debug: true
+      debug: true,
+      onNotification: function(message){
+        ionicToast.show(message.text, 'top', true, 2500);
+      }
     });
     push.register(function(token){
       $localStorage.set('device_token',token.token)

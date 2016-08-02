@@ -57,7 +57,7 @@ angular.module('starter.controllers')
 			$ionicLoading.show({ template: 'Carregando...' });
 			Cupom.get({code: code},function (data) {
 				var cupomCode = data.data.code, cupomValue = data.data.value;
-				if (cupomValue > $scope.total) {
+				if ($scope.total > cupomValue) {
 					$cart.setCupom(cupomCode, cupomValue);
 					$scope.cupom = $cart.get().cupom;
 					$scope.total = $cart.getTotalFinal();

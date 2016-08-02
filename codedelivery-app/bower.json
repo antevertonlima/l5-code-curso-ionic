@@ -17,7 +17,8 @@
     "lodash": "3.8.0",
     "jquery": "^3.1.0",
     "angular-permission": "2.1.0",
-    "angular-http-auth": "1.2.3"
+    "angular-http-auth": "1.2.3",
+    "ionic-toast": "^0.4.1"
   },
   "resolutions": {
     "angular": "1.5.8"
