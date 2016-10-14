@@ -2,7 +2,7 @@
 
 namespace CodeDelivery\Exceptions;
 
-use Asm89\Stack\CorsService;
+use Barryvdh\Cors\Stack\CorsService;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Legue\OAuth2\Server\Exception\OAuthException;
@@ -13,7 +13,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
-    $private $corsService;
+    private $corsService;
     public function __construct (LoggerInterface $log, CorsService $corsService)
     {
         parent::__construct($log);
@@ -61,7 +61,7 @@ class Handler extends ExceptionHandler
             $e->httpStatusCode,$e->getHttpHeaders());
             // return $response;
 
-            return $this->corsService->addActualRequestHeaders($response, $request)
+            return $this->corsService->addActualRequestHeaders($response, $request);
         }
 
         return parent::render($request, $e);
