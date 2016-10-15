@@ -9,7 +9,7 @@ angular.module('starter.filters',[]);
 angular.module('starter.run',[]);
 
 angular.module('starter',
-  ['ionic','ionic.service.core',
+  ['ionic','ionic.cloud',
   'starter.controllers','starter.services','starter.filters','starter.run',
   'angular-oauth2','ngResource','ngCordova','uiGmapgoogle-maps',
   'pusher-angular','permission','http-auth-interceptor','ionic-toast'])
@@ -26,9 +26,9 @@ angular.module('starter',
   }
 })
 
-.run(function($ionicPlatform, $window, appConfig, $localStorage,ionicToast) {
+.run(function($window, appConfig, $localStorage,ionicToast,$ionicPush,$rootScope) {
   $window.client = new Pusher(appConfig.pusherKey);
-  $ionicPlatform.ready(function() {
+  ionic.Platform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -42,20 +42,31 @@ angular.module('starter',
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-    Ionic.io();
-    var push = new Ionic.Push({
-      debug: true,
-      onNotification: function(message){
-        ionicToast.show(message.text, 'top', true, 2500);
-      }
+
+    $ionicPush.register().then(function(t) {
+      $localStorage.set('device_token',t.token)
+      return $ionicPush.saveToken(t);
+    }).then(function(t) {
+      console.log('Token saved:', t.token);
     });
-    push.register(function(token){
-      $localStorage.set('device_token',token.token)
-    })
+
+    $rootScope.$on('cloud:push:notification', function(event, data) {
+      var msg = data.message;
+      ionicToast.show(msg.text, 'top', true, 2500);
+    });
+
   });
 })
 .config(function($stateProvider, $urlRouterProvider, OAuthProvider, 
-                 OAuthTokenProvider, appConfig, $provide){
+                 OAuthTokenProvider, appConfig, $provide, $ionicCloudProvider){
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "cbb99bb1"
+    },
+    "push": {
+      "sender_id": "825417114018",
+    }
+  });
     // $urlRouterProvider.otherwise('/');
     OAuthProvider.configure({
         baseUrl: appConfig.baseUrl,
