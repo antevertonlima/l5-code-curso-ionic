@@ -1,8 +1,7 @@
 angular.module('starter.services')
-.service('Redirect',['$state','UserData','appConfig',
-    function($state,UserData,appConfig){
-		var user = UserData.get();
-		this.redirectAfterLogin = function () {
-			$state.go(appConfig.redirAfterLogin[user.role]);
+.service('Redirect',['$state','appConfig',
+    function($state,appConfig){
+		this.redirectAfterLogin = function (role) {
+			$state.go(appConfig.redirAfterLogin[role]);
 		};
 }]);

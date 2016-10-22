@@ -20,7 +20,7 @@ angular.module('starter.controllers')
                 })
                 .then(function(data){
                     UserData.set(data.data);
-                    Redirect.redirectAfterLogin();
+                    Redirect.redirectAfterLogin(UserData.get().role);
                 }, function(responseError) {
                     UserData.set(null);
                     $ionicPopup.alert({

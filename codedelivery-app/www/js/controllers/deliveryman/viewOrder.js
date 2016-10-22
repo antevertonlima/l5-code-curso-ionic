@@ -27,13 +27,14 @@ angular.module('starter.controllers')
                 watch = $cordovaGeolocation.watchPosition(watchOptions);
                 watch.then(null,
                     function(responseError){
-
+                        console.log(responseError);
                     },function(position){
+                        console.log(position);
                         DeliverymanOrder.geo({id: $stateParams.id},{
                             lat: position.coords.latitude,
                             long: position.coords.longitude
                         },function(data){
-                            
+                            console.log(data);
                         });
                     });
             });

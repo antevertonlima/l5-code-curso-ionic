@@ -1,6 +1,6 @@
 # Pusher Javascript Client
 
-This library is an open source client that allows Javascript web browser clients to connect to the [Pusher](http://pusher.com/) WebSocket API. It also supports fallback to HTTP connection transports. It is highly recommended that you use the hosted version of this file to stay up to date with the latest updates.
+This library is an open source client that allows Javascript clients to connect to the [Pusher webservice](http://pusherapp.com/). It is highly recommended that you use the hosted version of this file to stay up to date with the latest updates.
 
 We have included the source code for following libraries:
 
@@ -12,13 +12,7 @@ They both include their own licences.
 
 The following topics are covered:
 
-* Supported runtimes and installation
-  * Web
-  * React Native
-  * Web Workers
-  * NodeJS
 * Configuration
-* Global configuration
 * Connection
 * Socket ids
 * Subscribing to channels (public and private)
@@ -27,86 +21,13 @@ The following topics are covered:
   * Per-channel
 * Default events
 
-## Installation
-
-### Web
-
-If you're using PusherJS on a web page, you can install the library via:
-
-#### CDN
-
-```html
-<script src="//js.pusher.com/3.1/pusher.min.js"></script>
-```
-
-#### Bower
-
-Or via [Bower](http://bower.io/):
-
-```bash
-bower install pusher
-```
-
-and then
-
-```html
-<script src="bower_components/pusher/dist/web/pusher.min.js"></script>
-```
-
-#### NPM
-
-```bash
-npm install pusher-js
-```
-
-Then simply call:
-
-```javascript
-var Pusher = require('pusher-js');
-```
-
-### React Native
-
-You can install `pusher-js` from NPM, then import the `react-native` path of PusherJS.
-
-```javascript
-import Pusher from 'pusher-js/react-native';
-```
-
-Notes:
-
-* The fallbacks available for this runtime are HTTP streaming and polling.
-* This build uses React Native's NetInfo API to detect changes on connectivity state. It will use this to automatically reconnect.
-
-### Web Workers
-
-You can import the worker script (`pusher.worker.js`, not `pusher.js`) from the CDN:
-
-```javascript
-importScripts("https://js.pusher.com/3.1/pusher.worker.min.js");
-```
-
-Notes:
-
-* For standard `WebWorkers`, this build will use HTTP as a fallback.
-* For `ServiceWorkers`, as the `XMLHttpRequest` API is unavailable, there is currently no support for HTTP fallbacks. However, we are open to requests for fallbacks using `fetch` if there is demand.
-
-## Initialization
-
-```js
-var pusher = new Pusher(APP_KEY);
-```
-
 ## Configuration
 
 There are a number of configuration parameters which can be set for the Pusher client, which can be passed as an object to the Pusher constructor, i.e.:
 
-```js
-var pusher = new Pusher(APP_KEY, {
-    authEndpoint: "http://example.com/pusher/auth",
-    encrypted: true
-});
-```
+    var pusher = new Pusher(API_KEY, {
+        authEndpoint: "http://example.com/pusher/auth"
+    });
 
 For most users, there is little need to change these. See [client API guide](http://pusher.com/docs/client_api_guide/client_connect) for more details.
 
@@ -126,36 +47,19 @@ Defines how the authentication endpoint, defined using authEndpoint, will be cal
 
 Allows passing additional data to authorizers. Supports query string params and headers (AJAX only). For example, following will pass `foo=bar` via the query string and `baz: boo` via headers:
 
-```js
-var pusher = new Pusher(API_KEY, {
-  auth: {
-    params: { foo: "bar" },
-    headers: { baz: "boo" }
-  }
-});
-```
-
-##### CSRF
-
-If you require a CSRF header for incoming requests to the private channel authentication endpoint on your server, you should add a CSRF token to the `auth` hash under `headers`. This is applicable to frameworks which apply CSRF protection by default.
-
-```js
-var pusher = new Pusher(API_KEY, {
-  auth: {
-    params: { foo: "bar" },
-    headers: { "X-CSRF-Token": "SOME_CSRF_TOKEN" }
-  }
-});
-```
+    var pusher = new Pusher(API_KEY, {
+      auth: {
+        params: { foo: "bar" },
+        headers: { baz: "boo" }
+      }
+    });
 
 #### `cluster` (String)
 
 Allows connecting to a different datacenter by setting up correct hostnames and ports for the connection.
 
-```js
-// will connect to the 'eu' cluster
-var pusher = new Pusher(API_KEY, { cluster: "eu" });
-```
+    // will connect to the 'eu' cluster
+    var pusher = new Pusher(API_KEY, { cluster: "eu" });
 
 #### `disableStats` (Boolean)
 
@@ -163,27 +67,23 @@ Disables stats collection, so that connection metrics are not submitted to Pushe
 
 #### `enabledTransports` (Array)
 
-Specifies which transports should be used by Pusher to establish a connection. Useful for applications running in controlled, well-behaving environments. Available transports for web: `ws`, `wss`, `xhr_streaming`, `xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be disabled.
+Specifies which transports should be used by Pusher to establish a connection. Useful for applications running in controlled, well-behaving environments. Available transports: `ws`, `wss`, `xhr_streaming`, `xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be disabled.
 
-```js
-// will only use WebSockets
-var pusher = new Pusher(API_KEY, { enabledTransports: ["ws"] });
-```
+    // will only use WebSockets
+    var pusher = new Pusher(API_KEY, { enabledTransports: ["ws"] });
 
 #### `disabledTransports` (Array)
 
-Specified which transports must not be used by Pusher to establish a connection. This settings overwrites transports whitelisted via the `enabledTransports` options. Available transports for web: `ws`, `wss`, `xhr_streaming`, `xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be enabled.
+Specified which transports must not be used by Pusher to establish a connection. This settings overwrites transports whitelisted via the `enabledTransports` options. Available transports: `ws`, `wss`, `xhr_streaming`, `xhr_polling`, `sockjs`. Additional transports may be added in the future and without adding them to this list, they will be enabled.
 
-```js
-// will use all transports except for sockjs
-var pusher = new Pusher(API_KEY, { disabledTransports: ["sockjs"] });
+    // will use all transports except for sockjs
+    var pusher = new Pusher(API_KEY, { disabledTransports: ["sockjs"] });
 
-// will only use WebSockets
-var pusher = new Pusher(API_KEY, {
-  enabledTransports: ["ws", "xhr_streaming"],
-  disabledTransports: ["xhr_streaming"]
-});
-```
+    // will only use WebSockets
+    var pusher = new Pusher(API_KEY, {
+      enabledTransports: ["ws", "xhr_streaming"],
+      disabledTransports: ["xhr_streaming"]
+    });
 
 #### `wsHost`, `wsPort`, `wssPort`, `httpHost`, `httpPort`, `httpsPort`
 
@@ -201,31 +101,11 @@ After this time (in miliseconds) without any messages received from the server, 
 
 Time before the connection is terminated after sending a ping message. Default is 30000 (30s). Low values will cause false disconnections, if latency is high.
 
-## Global configuration
-
-### `Pusher.logToConsole` (Boolean)
-
-Enables logging to the browser console via calls to `console.log`.
-
-### `Pusher.log` (Function)
-
-Assign a custom log handler for the Pusher library logging. For example:
-
-```js
-Pusher.log = function(msg) {
-  console.log(msg);
-};
-```
-
-By setting the `log` property you also override the use of `Pusher.enableLogging`.
-
 ## Connection
 
 A connection to Pusher is established by providing your API key to the constructor function:
 
-```js
-var socket = new Pusher(API_KEY);
-```
+    var socket = new Pusher(API_KEY);
 
 This returns a socket object which can then be used to subscribe to channels.
 
@@ -241,9 +121,7 @@ It is also stored within the socket, and used as a token for generating signatur
 
 The default method for subscribing to a channel involves invoking the `subscribe` method of your socket object:
 
-```js
-var my_channel = socket.subscribe('my-channel');
-```
+    var my_channel = socket.subscribe('my-channel');
 
 This returns a Channel object which events can be bound to.
 
@@ -251,44 +129,21 @@ This returns a Channel object which events can be bound to.
 
 Private channels are created in exactly the same way as normal channels, except that they reside in the 'private-' namespace. This means prefixing the channel name:
 
-```js
-var my_channel = socket.subscribe('private-my-channel');
-```
+    var my_channel = socket.subscribe('private-my-channel');
 
 It is possible to access channels by name, through the `channel` function:
 
-```js
-channel = socket.channel('private-my-channel');
-```
+    channel = socket.channel('private-my-channel');
 
 It is possible to access all subscribed channels through the `allChannels` function:
 
-```js
-var channels = socket.allChannels();
-console.group('Pusher - subscribed to:');
-for (var i = 0; i < channels.length; i++) {
-    var channel = channels[i];
-    console.log(channel.name);
-}
-
-console.groupEnd();
-```
-
-Private and presence channels will make a request to your `authEndpoint` (`/pusher/auth`) by default, where you will have to [authenticate the subscription](https://pusher.com/docs/authenticating_users). You will have to send back the correct auth response and a 200 status code.
-
-## Unsubscribing from channels
-
-To unsubscribe from a channel, invoke the `unsubscribe` method of your socket object:
-
-```js
-socket.unsubscribe('my-channel');
-```
-
-Unsubscribing from private channels is done in exactly the same way, just with the additional `private-` prefix:
-
-```js
-socket.unsubscribe('private-my-channel');
-```
+    var channels = socket.allChannels();
+    console.group('Pusher - subscribed to:');
+    for (var i = 0; i < channels.length; i++) {
+        var channel = channels[i];
+        console.log(channel.name);
+    }
+    console.groupEnd();
 
 ## Binding to events
 
@@ -298,53 +153,46 @@ Events can be bound to at 2 levels, the global, and per channel. They take a ver
 
 You can attach behaviour to these events regardless of the channel the event is broadcast to. The following is an example of an app that binds to new comments from any channel:
 
-```js
-var socket = new Pusher('MY_API_KEY');
-var my_channel = socket.subscribe('my-channel');
-socket.bind('new-comment',
-  function(data) {
-    // add comment into page
-  }
-);
-```
+    var socket = new Pusher('MY_API_KEY');
+    var my_channel = socket.subscribe('my-channel');
+    socket.bind('new-comment',
+      function(data) {
+        // add comment into page
+      }
+    );
 
 ### Per-channel events
 
 These are bound to a specific channel, and mean that you can reuse event names in different parts of your client application. The following might be an example of a stock tracking app where several channels are opened for different companies:
 
-```js
-var socket = new Pusher('MY_API_KEY');
-var channel = socket.subscribe('APPL');
-channel.bind('new-price',
-  function(data) {
-    // add new price into the APPL widget
-  }
-);
-```
+    var socket = new Pusher('MY_API_KEY');
+    var channel = socket.subscribe('APPL');
+    channel.bind('new-price',
+      function(data) {
+        // add new price into the APPL widget
+      }
+    );
 
 ### Bind event handler with optional context
 
 It is possible to provide a third, optional parameter that is used as the `this` value when calling a handler:
 
-```js
-var context = { title: 'Pusher' };
-var handler = function(){
-  console.log('My name is ' + this.title);
-};
-channel.bind('new-comment', handler, context);
-```
+    var context = { title: 'Pusher' };
+    var handler = function(){
+      console.log('My name is ' + this.title);
+    };
+    channel.bind('new-comment', handler, context);
 
 ### Unbind event handlers
 
 Remove previously-bound handlers from an object. Only handlers that match all of the provided arguments (`eventName`, `handler` or `context`) are removed:
 
-```js
-channel.unbind('new-comment', handler); // removes just `handler` for the `new-comment` event
-channel.unbind('new-comment'); // removes all handlers for the `new-comment` event
-channel.unbind(null, handler); // removes `handler` for all events
-channel.unbind(null, null, context); // removes all handlers for `context`
-channel.unbind(); // removes all handlers on `channel`
-```
+    channel.unbind('new-comment', handler); // removes just `handler` for the `new-comment` event
+    channel.unbind('new-comment'); // removes all handlers for the `new-comment` event
+    channel.unbind(null, handler); // removes `handler` for all events
+    channel.unbind(null, null, context); // removes all handlers for `context`
+    channel.unbind(); // removes all handlers on `channel`
+
 
 ### Binding to everything
 
@@ -365,23 +213,26 @@ There are a number of events which are used internally, but can also be of use e
 
 You can host JavaScript files yourself, but it's a bit more complicated than putting them somewhere and just linking `pusher.js` in the source of your website. Because pusher-js loads fallback files dynamically, the dependency loader must be configured correctly or it will be using `js.pusher.com`.
 
-First, clone this repository and run `npm install && git submodule init && git submodule update`. Then run:
+First, make sure you expose all files from the `dist` directory. They need to be in a directory with named after the version number. For example, if you're hosting version 2.1.3 under `http://example.com/pusher-js` (and https for SSL), files should be accessible under following URL's:
 
-    $ CDN_HTTP='http://your.http.url' CDN_HTTPS='https://your.https.url' make web
+    http://example.com/pusher-js/2.1.3/pusher.js
+    http://example.com/pusher-js/2.1.3/json2.js
+    http://example.com/pusher-js/2.1.3/sockjs.js
 
-In the `dist/web` folder, you should see the files you need: `pusher.js`, `pusher.min.js`, `json2.js`, `json.min.js`, `sockjs.js` and `sockjs.min.js`. `pusher.js` should be built referencing your URLs as the dependency hosts.
-
-First, make sure you expose all files from the `dist` directory. They need to be in a directory with named after the version number. For example, if you're hosting version 3.1.0 under `http://example.com/pusher-js` (and https for SSL), files should be accessible under following URL's:
-
-    http://example.com/pusher-js/3.1.0/pusher.js
-    http://example.com/pusher-js/3.1.0/json2.js
-    http://example.com/pusher-js/3.1.0/sockjs.js
-
-Minified files should have `.min` in their names, as in the `dist/web` directory:
+Minified files should have `.min` in names, as in the `dist` directory:
 
     http://example.com/pusher-js/2.1.3/pusher.min.js
     http://example.com/pusher-js/2.1.3/json2.min.js
     http://example.com/pusher-js/2.1.3/sockjs.min.js
+
+Then after loading `pusher.js`, but before connecting, you need to overwrite the dependency loader by executing following piece of code:
+
+    Pusher.Dependencies = new Pusher.DependencyLoader({
+      cdn_http: "http://example.com/pusher-js/",
+      cdn_https: "https://example.com/pusher-js/",
+      version: Pusher.VERSION,
+      suffix: Pusher.dependency_suffix
+    });
 
 ## SockJS compatibility
 
@@ -391,95 +242,100 @@ All other browsers work fine with two or three connections.
 
 ## Developing
 
-Install all dependencies via NPM:
+Use Bundler to install all development dependencies
 
-```bash
-npm install
-```
+    bundle install
+
+and create a local config file
+
+    mv config/config.yml.example config/config.yml # and edit
 
 Run a development server which serves bundled javascript from <http://localhost:5555/pusher.js> so that you can edit files in /src freely.
 
-```bash
-make serve
-```
+    bundle exec jbundle server
 
-You can optionally pass a `PORT` environment variable to run the server on a different port. You can also pass `CDN_HTTP` and `CDN_HTTPS` variables if you wish the library to load dependencies from a new host.
+In order to build the minified versions:
 
-This command will serve `pusher.js`, `sockjs.js`, `json2.js`, and their respective minified versions.
+    ENVIRONMENT=development rake build
 
-## Core Vs. Platform-Specific Code
-
-New to PusherJS 3.1 is the ability for the library to produce builds for different runtimes: classic web, React Native, NodeJS and
-Web Workers.
-
-In order for this to happen, we have split the library into two directories: `core/` and `runtimes/`. In `core` we keep anything that is platform-independent. In `runtimes` we keep code that depends on certain runtimes.
-
-Throughout the `core/` directory you'll find this line:
-
-```javascript
-import Runtime from "runtime";
-```
-
-We use webpack module resolution to make the library look for different versions of this module depending on the build.
-
-For web it will look for `src/runtimes/web/runtime.ts`. For ReactNative, `src/runtimes/react-native/runtime.ts`. For Node:  `src/runtimes/node/runtime.ts`. For worker: `src/runtimes/worker/runtime.ts`.
-
-Each of these runtime files exports an object (conforming to the interface you can see in `src/runtimes/interface.ts`) that abstracts away everything platform-specific. The core library pulls this object in without any knowledge of how it implements it. This means web build can use the DOM underneath, the ReactNative build can use its native NetInfo API, Workers can use `fetch` and so on.
+If you wish to host the javascript on your own server you need to change [:js][:host] in `config.yml` and then rebuild.
 
 ## Building
 
-In order to build SockJS, you must first initialize and update the Git submodule:
+`./JFile` declares all bundles, src dir and target dir. See [https://github.com/ismasan/jbundle](https://github.com/ismasan/jbundle)
+Define the version number in JFile (should be in the format 1.2.3).
 
-```bash
-git submodule init
-git submodule update
-```
+    rake build
 
-Then simply run:
+That writes source and minified versions of each bundle declared in the JFile into versioned directories. For example if the JFile says
 
-```bash
-make web
-```
+    version '1.7.1'
 
-This will build the source files relevant for the web build into `dist/web`.
+Then rake build will put copies of the files in ./dist/1.7.1/ and ./dist/1.7/
 
-In order to specify the library version, you can either update `package.json` or pass a `VERSION` environment variable upon building.
+However for a prerelease
 
-Other build commands include:
+    version '1.7.2-pre'
 
-```bash
-make react-native # for the React Native build
-make node         # for the NodeJS build
-make worker       # for the worker build
-```
+It will only write to the full, suffixed directory ./dist/1.7.2-pre
+
+This is so prereleases don't overwrite the previous stable release.
+
+### Clean builds
+
+Building everything from scratch is useful when you update submodules, which need compiling. If you want to perform a clean build, run:
+
+    bin/build
+
+This will clean sockjs-client submodule, check out last committed revision, rebuild SockJS fallback files and then run JBundle. Don't run this command if you have uncommitted changes in any of submodules, since it might overwrite them.
 
 ## Testing
 
-Each test environment contains two types of tests:
+### Jasmine
+
+Jasmine test suite contains two types of tests:
 
 1. unit tests,
 2. integration tests.
 
 Unit tests are simple, fast and don't need any external dependencies. Integration tests usually connect to production and js-integration-api servers and can use a local server for loading JS files, so they need an Internet connection to work.
 
-There are 3 different testing environments: one for web, one for NodeJS and one for workers. We may consider adding another one for React Native in the future.
+There are several ways to run jasmine tests. All commands mentioned below also start a JBundle server, which is required for integration tests.
 
-The web and worker tests use [Karma](https://github.com/karma-runner/karma) to execute specs in real browsers. The NodeJS tests use [jasmine-node](https://github.com/mhevery/jasmine-node).
+Please make sure you run bundler before running any of following commands.
 
-To run the tests:
+    bundle install
 
-```bash
-# For web
-make web_unit
-make web_integration
+#### Run tests manually in a browser
 
-# For NodeJS
-make node_unit
-make node_integration
+First, start the jasmine and JSONP integration servers:
 
-# For workers
-make worker_unit
-make worker_integration
-```
+    bin/jasmine
 
-If you want your Karma tests to automatically reload, then in `spec/karma/config.common.js` set `singleRun` to `false`.
+Then open any browser and navigate to <http://localhost:8888/> - it will run both unit and integration tests.
+
+#### Run headless tests
+
+Running headless tests is very convenient for development, especially when using guard. Make sure you have PhantomJS installed - you can use `brew install phantomjs` on OS X. Start jasmine and guard:
+
+    bin/guard
+
+Tests will be run automatically in the terminal. Guard watches JS files and specs and re-runs aproppriate tests whenever you save any changes. Press enter to re-run all tests.
+
+Guard runs only unit tests - partially because PhantomJS does not support WebSockets, partially for convenience.
+
+There's also a JSHint watch, which will validate JS files on save.
+
+#### Run karma
+
+Testacular also runs tests automatically, but it uses actual browsers to execute them. First, install karma npm modules
+
+    npm install
+
+Then start the server, run one of following commands:
+
+    bin/karma-unit           # runs only unit tests
+    bin/karma-integration    # runs only integration tests
+    bin/karma                # runs both unit and integration tests
+
+All configured browsers will be automatically opened and will run all tests. Testacular also re-executes all specs on file changes. After you close the server, browsers will get shut down too.

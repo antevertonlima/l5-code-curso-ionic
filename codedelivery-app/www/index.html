@@ -8,6 +8,7 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <!--<link href="css/style.css" rel="stylesheet">-->
     <link href="css/google-maps.css" rel="stylesheet">
+    <link href="css/action-sheet-style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -26,13 +27,13 @@
     <script src="lib/lodash/lodash.min.js"></script>
     <script src="lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
     <script src="lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
-    <script src="lib/pusher-websocket-iso/dist/web/pusher.js"></script>
+    <script src="lib/pusher/dist/web/pusher.js"></script>
     <script src="lib/pusher-angular/lib/pusher-angular.min.js"></script>
     <script src="lib/jquery.easing/js/jquery.easing.min.js"></script>
     <script src="lib/angular-permission/dist/angular-permission.min.js"></script>
     <script src="lib/angular-http-auth/src/http-auth-interceptor.js"></script>
     <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
-	
+
 	<script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
@@ -44,7 +45,6 @@
 
     <!-- controllers app's js -->
     <script src="js/controllers/login.js"></script>
-    <script src="js/controllers/logout.js"></script>
     <script src="js/controllers/client/menu.js"></script>
     <script src="js/controllers/home.js"></script>
     <script src="js/controllers/client/checkout.js"></script>
@@ -67,6 +67,7 @@
     <script src="js/services/product.js"></script>
     <script src="js/services/order.js"></script>
     <script src="js/services/cupom.js"></script>
+    <script src="js/services/logout.js"></script>
     <script src="js/services/redirect.js"></script>
 
     <!-- filter app's js -->
@@ -75,7 +76,7 @@
   </head>
 <body ng-app="starter">
   <ion-nav-view></ion-nav-view>
-  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA-3YTdsAVeBaaDYbZeCtmu15EGnaBUDI&sensor=false"></script>
   <script src="lib/marker-animate-unobtrusive/vendor/markerAnimate.js"></script>
   <script src="lib/marker-animate-unobtrusive/dist/SlidingMarker.min.js"></script>
   <script>

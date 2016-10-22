@@ -61,10 +61,10 @@ angular.module('starter',
                  OAuthTokenProvider, appConfig, $provide, $ionicCloudProvider){
   $ionicCloudProvider.init({
     "core": {
-      "app_id": "cbb99bb1"
+      "app_id": "d23dcfb4"
     },
     "push": {
-      "sender_id": "825417114018",
+      "sender_id": "120562140819",
     }
   });
     // $urlRouterProvider.otherwise('/');
@@ -92,10 +92,6 @@ angular.module('starter',
             url: '/login',
             templateUrl: 'templates/login.html',
             controller: 'LoginCtrl'
-        })
-        .state('logout', {
-            url: '/logout',
-            controller: 'LogoutCtrl'
         })
         .state('home', {
             url: '/',
