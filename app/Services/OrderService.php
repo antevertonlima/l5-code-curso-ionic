@@ -92,12 +92,14 @@ class OrderService
                 }
                 $order->save();
                 $this->pushProcessor->notify([$user->device_token],[
+                    'title' => "DevFood - Status do pedido #{$order->id} !",
                     'message' => "Seu pedido #{$order->id} saiu para entrega!"
                 ]);
                 break;
             case 2:
                 $order->save();
                 $this->pushProcessor->notify([$user->device_token],[
+                    'title' => "DevFood - Status do pedido #{$order->id} !",
                     'message' => "Seu pedido #{$order->id} acabou de ser entregue!"
                 ]);
                 break;

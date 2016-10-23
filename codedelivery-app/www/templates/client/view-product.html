@@ -5,11 +5,18 @@
 	</div>
     <ion-content class="padding has-subheader">
         <ion-list>
-            <ion-item collection-repeat="p in products" ng-click="addItem(p)">
-                {{ p.name }}
-                <span class="item-note">
-                	<i class="ion ion-cash"> {{ p.price }}</i>
-                </span>
+            <ion-item collection-repeat="p in products" 
+                      class="item-remove-animate item-thumbnail-left item-icon-right" 
+                      ng-click="addItem(p)">
+
+                <img ng-src="img/r2_thumb.jpg">
+                <h2>{{ p.name }}</h2>
+                <p>
+                    <span class="item-note">
+                        <i class="ion ion-cash"> {{ p.price }}</i>
+                    </span>
+                </p>
+                <i class="icon ion-plus icon-accessory"></i>
             </ion-item>
         </ion-list>
         <ion-infinite-scroll ng-if="canMoreProducts" on-infinite="loadModel()" distance="1%"></ion-infinite-scroll>
