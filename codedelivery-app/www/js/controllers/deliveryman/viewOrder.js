@@ -15,7 +15,7 @@ angular.module('starter.controllers')
         $scope.goToDelivery = function (){
             $ionicPopup.alert({
                 title: 'Advertência',
-                template: 'Para parar a localização de ok!'
+                template: 'Para finalizar a entrega precione "ok"!'
             }).then(function(){
                 stopWatchPosition();
             });
@@ -40,9 +40,11 @@ angular.module('starter.controllers')
             });
         };
         function stopWatchPosition(){
-            if (watch && typeof watch == 'object' && watch.hasOwnProperty('watchID')) {
-                $cordovaGeolocation.clearWatch(watch.watchID);
-            }
+            DeliverymanOrder.updateStatus({id: $stateParams.id},{status: 2},function(data){
+                if (watch && typeof watch == 'object' && watch.hasOwnProperty('watchID')) {
+                    $cordovaGeolocation.clearWatch(watch.watchID);
+                }
+            });
         }
 
 }]);

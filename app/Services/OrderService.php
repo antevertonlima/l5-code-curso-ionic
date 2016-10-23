@@ -92,7 +92,7 @@ class OrderService
                 }
                 $order->save();
                 $this->pushProcessor->notify([$user->device_token],[
-                    'action' => "DevFood - Status do pedido #{$order->id} !",
+                    'tag' => "pedido_a_caminho",
                     'title' => "DevFood - Status do pedido #{$order->id} !",
                     'message' => "Seu pedido #{$order->id} saiu para entrega!"
                 ]);
@@ -100,9 +100,17 @@ class OrderService
             case 2:
                 $order->save();
                 $this->pushProcessor->notify([$user->device_token],[
-                    'action' => "DevFood - Status do pedido #{$order->id} !",
+                    'tag' => "pedido_a_entregue",
                     'title' => "DevFood - Status do pedido #{$order->id} !",
                     'message' => "Seu pedido #{$order->id} acabou de ser entregue!"
+                ]);
+                break;
+            case 3:
+                $order->save();
+                $this->pushProcessor->notify([$user->device_token],[
+                    'tag' => "pedido_a_cancelado",
+                    'title' => "DevFood - Status do pedido #{$order->id} !",
+                    'message' => "O pedido #{$order->id} acabou de ser cancelado!"
                 ]);
                 break;
         }
