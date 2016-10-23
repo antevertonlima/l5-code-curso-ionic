@@ -52,7 +52,7 @@ angular.module('starter',
 
     $rootScope.$on('cloud:push:notification', function(event, data) {
       var msg = data.message;
-      ionicToast.show(msg.text, 'top', true, 2500);
+      ionicToast.show(msg.title + ': ' + msg.text, 'top', true, 2500);
     });
 
   });
