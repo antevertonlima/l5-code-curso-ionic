@@ -41,10 +41,7 @@ class DeliverymanCheckoutController extends Controller
         $id = Authorizer::getResourceOwnerId();
         $orders = $this->repository
             ->skipPresenter(false)->scopeQuery(function($query) use ($id){
-                return $query->where('user_deliveryman_id','=',$id);
-            }, function ($query) {
-                return $query->where('status','=',0);
-            }
+            return $query->where('user_deliveryman_id','=',$id);
         })->paginate();
         return $orders;
     }
