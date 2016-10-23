@@ -92,7 +92,7 @@ class OrderService
                 }
                 $order->save();
                 $this->pushProcessor->notify([$user->device_token],[
-                    'tag' => "DevFood - Status do pedido #{$order->id} !",
+                    'action' => "DevFood - Status do pedido #{$order->id} !",
                     'title' => "DevFood - Status do pedido #{$order->id} !",
                     'message' => "Seu pedido #{$order->id} saiu para entrega!"
                 ]);
@@ -100,7 +100,7 @@ class OrderService
             case 2:
                 $order->save();
                 $this->pushProcessor->notify([$user->device_token],[
-                    'tag' => "DevFood - Status do pedido #{$order->id} !",
+                    'action' => "DevFood - Status do pedido #{$order->id} !",
                     'title' => "DevFood - Status do pedido #{$order->id} !",
                     'message' => "Seu pedido #{$order->id} acabou de ser entregue!"
                 ]);
