@@ -160,6 +160,11 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
 
         /*
+         * QrCode Generator
+         */
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         CodeDelivery\Providers\AppServiceProvider::class,
@@ -218,6 +223,7 @@ return [
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Form'      => Illuminate\Html\FormFacade::class,
         'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
+        'QrCode'    => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
 
     ],
 
