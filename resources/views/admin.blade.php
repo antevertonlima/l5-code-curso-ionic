@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>CodeDelivery | </title>
+    <title>iDevFood | </title>
 
     <!-- Bootstrap core CSS -->
 
@@ -44,7 +44,7 @@
 
                 <div class="navbar nav_title" style="border: 0;">
                     <a href="./" class="site_title"><i class="fa fa-paw"></i>
-                        <span>Code Delivery</span>
+                        <span>iDevFood</span>
                     </a>
                 </div>
                 <div class="clearfix"></div>
@@ -53,7 +53,7 @@
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <img src="https://avatars0.githubusercontent.com/u/5508160?v=3&s=460" alt="..." class="img-circle profile_img">
+                            <img src="{{ Auth::user()->gravatar }}" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Bem Vindo,</span>
@@ -289,8 +289,8 @@
             <!-- footer content -->
             <footer>
                 <div class="">
-                    <p class="pull-right">Code Delivery a Bootstrap 3 template by <a>Kimlabs</a>. |
-                        <span class="lead"> <i class="fa fa-paw"></i> Code Delivery</span>
+                    <p class="pull-right">iDevFood a Bootstrap 3 template by <a>Kimlabs</a>. |
+                        <span class="lead"> <i class="fa fa-paw"></i> iDevFood</span>
                     </p>
                 </div>
                 <div class="clearfix"></div>

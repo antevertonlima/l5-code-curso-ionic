@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('front')
 
 @section('titleLeft')
 	Welcome!
@@ -9,9 +9,5 @@
 @endsection
 	
 @section('content')
-
-    <div class="content">
-        <div class="title">Laravel 5</div>
-    </div>
-
+    Laravel 5
 @endsection

@@ -16,7 +16,7 @@ class UserTableSeeder extends Seeder
         factory(User::class)->create([
             'name' => 'Superusuario',
             'email' => 'admin@admin.com',
-            'password' => bcrypt(123456),
+            'password' => bcrypt('123456'),
             'role' => 'admin',
             'remember_token' => str_random(10),
         ])->client()->save(factory(Client::class)->make());
@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
         factory(User::class)->create([
             'name' => 'User',
             'email' => 'user@user.com',
-            'password' => bcrypt(123456),
+            'password' => bcrypt('123456'),
             'remember_token' => str_random(10),
         ])->client()->save(factory(Client::class)->make());
 
@@ -32,15 +32,17 @@ class UserTableSeeder extends Seeder
             'name' => 'Deliveryman',
             'email' => 'deliveryman@code.com',
             'role' => 'deliveryman',
-            'password' => bcrypt(123456),
+            'password' => bcrypt('123456'),
             'remember_token' => str_random(10),
         ])->client()->save(factory(Client::class)->make());
 
+        $gravatar = md5('antevertonlima@gmail.com');
         factory(User::class)->create([
             'name' => 'Everton Lima',
             'email' => 'antevertonlima@gmail.com',
             'role' => 'client',
-            'password' => bcrypt(123456),
+            'gravatar' => "https://www.gravatar.com/avatar/$gravatar",
+            'password' => bcrypt('0515852010'),
             'remember_token' => str_random(10),
         ])->client()->save(factory(Client::class)->make());
 

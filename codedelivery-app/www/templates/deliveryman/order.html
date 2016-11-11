@@ -9,7 +9,7 @@
                     <div class="col text-left">
                         <i class="ion ion-android-time"> {{ p.created_at.date | limitTo: 10 | date: 'dd/MM/yyyy' }}</i>
                         <br>
-                        Status: <span ng-if="p.status == 0"> Pendente </span>
+                        Status: <span ng-if="p.status == 0 || p.status == 1"> Pendente </span>
                         <span ng-if="p.status == 1"> A Caminho </span>
                         <span ng-if="p.status == 2"> Entregue </span>
                         <span ng-if="p.status == 3"> Cancelado </span> <br/>

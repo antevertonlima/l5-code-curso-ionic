@@ -28,29 +28,11 @@ angular.module('starter.controllers')
 		$scope.openOrderDetail = function (order) {
 			$state.go('client.orders_detail', {id: order.id});
 		};
-		$scope.showActionSheet = function(order){
-			$ionicActionSheet.show({
-				buttons: [
-					{text: 'Ver Detalhes'},
-					{text: 'Acompanhar Entrega'}
-				],
-				titleText: 'O que Fazer?',
-				cancelText: 'Cancelar',
-				cancel: function(){
-					//acao de cancelamento
-				},
-				buttonClicked: function(index){
-					switch (index){
-						case 0:
-							$state.go('client.orders_detail', {id: order.id});
-							break;
-						case 1:
-							$state.go('client.view_delivery', {id: order.id});
-							break;
-					}
-				}
-			});
+
+		$scope.openViewDelivery = function (order) {
+            $state.go('client.view_delivery', {id: order.id});
 		};
+
 		$scope.loadModel = function () {
 			getOrders().then(function (data) {
 				$scope.orders = $scope.orders.concat(data.data);

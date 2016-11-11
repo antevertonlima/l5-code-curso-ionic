@@ -25,6 +25,7 @@ class UserTransformer extends TransformerAbstract
             'name'  => $model->name,
             'email' => $model->email,
             'role'  => $model->role,
+            'gravatar' => $model->gravatar,
         ];
     }
 

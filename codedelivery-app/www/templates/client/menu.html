@@ -17,15 +17,14 @@
     <ion-content>
 
       <ion-header-bar class="bar bar-header item-input-inset dark-bg">
-        <label class="item-input-wrapper">
-          
+        <label>
+          <h4 class="stable">Bem vindo, {{ user.name }} !!</h4>
         </label>
       </ion-header-bar>
 
       <div class="text-center">
         <a ui-sref="account">
-          <img class="profile-picture" menu-close="" src="img/avatar.jpg">
-          <h4 class="stable">Bem vindo, {{ user.name }} !!</h4>
+          <img class="profile-picture" menu-close="" ng-src="{{ user.gravatar }}">
         </a>
         <div class="list text-left dark-list">
           <div class="item item-icon-left" menu-close ui-sref="client.orders">

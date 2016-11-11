@@ -1,36 +1,28 @@
 <ion-view>
     <ion-nav-title> Pedido: #{{ order.id }} </ion-nav-title>
-    <div class="bar bar-subheader">
+    <div class="bar bar-dark bar-subheader">
         <h2 class="title">Total: R$ {{ order.total }}</h2>
     </div>
     <ion-content class="padding has-subheader">
+        <!--<div id="map" data-tap-disabled="true">-->
+            <ui-gmap-google-map center='map.center' zoom="map.zoom" bounds="map.bounds">
+                <ui-gmap-map-control template="button-descentralize.html" position="top-right" controller="CvdDescentralizeCtrl" index="-1"></ui-gmap-map-control>
+                <ui-gmap-map-control template="button-reload.html" position="top-right" controller="CvdReloadCtrl" index="-1"></ui-gmap-map-control>
+                <ui-gmap-markers models="markers" coords="'coords'" options="'options'" fit="map.fit"></ui-gmap-markers>
+            </ui-gmap-google-map>
+        <!--</div>-->
         <div class="item item-divider">
             Data da compra: {{ order.created_at.date | limitTo: 10 | date: 'dd/MM/yyyy' }}
         </div>
         <ion-list>
-            <ion-item ng-repeat="item in order.items.data">
+            <ion-item class="item-remove-animate item-thumbnail-left item-icon-right"
+                      type="item-text-wrap" ui-sref="detail"
+                      ng-repeat="item in order.items.data">
+                <img ng-src="img/r1_thumb.jpg">
                 <h2>{{ item.product.data.name }}</h2>
-                <div class="row">
-                    <div class="col">
-                        Qtd: {{ item.qtd }} <br/>
-                        <i class="ion ion-cash"> {{ item.price }}</i>
-                    </div>
-                    <div class="col text-right">
-                        <i class="ion ion-social-usd"> {{ item.qtd * item.price }}</i>
-                    </div>
-                </div>
+                <p><i class="ion ion-cash"></i>{{ item.price }}</p>
+                <p>Qtd: {{ item.qtd }} / Total: R<i class="ion ion-social-usd"> {{ item.qtd * item.price }}</i></p>
             </ion-item>
         </ion-list>
-        <ui-gmap-google-map center='map.center' zoom="map.zoom" bounds="map.bounds">
-            <ui-gmap-map-control template="button-descentralize.html" position="top-right"
-                                 controller="CvdDescentralizeCtrl" index="-1">
-            </ui-gmap-map-control>
-            <ui-gmap-map-control template="button-reload.html" position="top-right"
-                                 controller="CvdReloadCtrl" index="-1">
-            </ui-gmap-map-control>
-            <ui-gmap-markers models="markers" coords="'coords'" 
-                             options="'options'" fit="map.fit">
-            </ui-gmap-markers>
-        </ui-gmap-google-map>
     </ion-content>
 </ion-view>

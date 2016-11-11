@@ -35,9 +35,9 @@
 					<div class="clearfix"></div>
 					<br />
 					<div>
-						<h1><i class="fa fa-paw" style="font-size: 26px;"></i> CodeDelivery</h1>
+						<h1><i class="fa fa-paw" style="font-size: 26px;"></i> iDevFood</h1>
 
-						<p>©2015 All Rights Reserved. CodeDelivery. Privacy and Terms</p>
+						<p>©2015 All Rights Reserved. iDevFood. Privacy and Terms</p>
 					</div>
 				</div>
 			</form>

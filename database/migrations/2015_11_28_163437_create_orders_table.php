@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_deliveryman_id')->references('id')->on('users');
             $table->decimal('total');
             $table->smallInteger('status')->default(0);
+            $table->integer('board')->nullable();
             $table->timestamps();
         });
     }
