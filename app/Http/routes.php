@@ -12,6 +12,8 @@ Route::group(['middleware' => 'cors'], function(){
         return Response::json(Authorizer::issueAccessToken());
     });
 
+    Route::post('/api/auth/register', ['as' => 'api.client.store','uses' => 'Api\Auth\AuthController@store']);
+
     Route::group(['prefix' => 'api','as' => 'api.','middleware' => 'oauth'], function(){
 
         Route::get('authenticated',['uses' => 'Api\LoggedController@index']);

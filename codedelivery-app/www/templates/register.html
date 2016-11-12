@@ -1,0 +1,35 @@
+<ion-view view-title="Login" hide-nav-bar="true" class="stable-bg">
+  <ion-content class="assertive-bg">
+    <div class="padding text-center">
+      <h1>
+        <i class="stable ion-android-restaurant"></i>
+      </h1>
+      <h2 class="stable">iDevFood</h2>
+      <p class="stable">Sistemas de Entregas e acompanhamento de pedidos!</p>
+    </div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="email" placeholder="Email" ng-model="newUser.email">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Ex.: Joe Due" ng-model="newUser.name">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Senha" ng-model="newUser.password">
+      </label>
+    </div>
+    <div class="padding">
+      <button class="button button-block button-stable" ng-click="register()">
+        Registrar
+      </button>
+    </div>
+    <div class="padding row">
+      <div class="col">
+        <span class="stable">Esqueceu a senha?</span>
+      </div>
+      <div class="col">
+        <a ui-sref="login" class="stable">Já é cadastrado? Identifique-se!</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
