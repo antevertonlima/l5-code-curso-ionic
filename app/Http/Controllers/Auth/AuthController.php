@@ -2,8 +2,10 @@
 
 namespace CodeDelivery\Http\Controllers\Auth;
 
-use CodeDelivery\User;
+use CodeDelivery\Models\User;
+use CodeDelivery\Models\Client;
 use Validator;
+use Illuminate\Http\Request;
 use CodeDelivery\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -62,5 +64,15 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function createApi(Request $request)
+    {
+        $input = $request->all();
+        $data['user']['name']               = $input['name'];
+        $data['user']['email']              = $input['email'];
+        $data['user']['password']           = bcrypt($input['password']);
+        $data['user']['remember_token']     = str_random(10);
+        return factory(User::class)->create( $data['user'] )->client()->save(factory(Client::class)->make());
     }
 }

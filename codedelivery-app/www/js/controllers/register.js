@@ -1,7 +1,7 @@
 angular.module('starter.controllers')
 .controller('RegisterCtrl',
-    ['$scope', 'OAuth', '$state', '$ionicPopup', 'UserData','Logged', '$localStorage','Redirect','appConfig','$http',
-    function($scope, OAuth, $state, $ionicPopup, UserData, Logged, $localStorage, Redirect, appConfig, $http){
+    ['$scope', 'OAuth', '$state', '$ionicPopup', 'UserData','Logged', '$localStorage','Redirect','appConfig','$resource',
+    function($scope, OAuth, $state, $ionicPopup, UserData, Logged, $localStorage, Redirect, appConfig, $resource){
 
         $scope.user = {
             username: '',
@@ -13,18 +13,26 @@ angular.module('starter.controllers')
             email: '',
             password: ''
         };
-        
-        $scope.register = function (newUser) {
-            $http.post(appConfig.baseUrl + '/api/auth/register', $scope.newUser)
-                .then(function (data) {
-                    $scope.user = {
-                        username: $scope.newUser.email,
-                        password: $scope.newUser.password
-                    };
-                    console.log($scope.user);
-                    $scope.login();
-                });
-        }
+
+        var newUser = $resource(appConfig.baseUrl + '/auth/api-register',{},{
+            query:{
+                isArray: false
+            }
+        });
+
+        $scope.register = function () {
+            var user = new newUser({});
+            user.name = $scope.newUser.name;
+            user.email = $scope.newUser.email;
+            user.password = $scope.newUser.password;
+            user.$save().then(function (data) {
+                $scope.user = {
+                    username: $scope.newUser.email,
+                    password: $scope.newUser.password
+                };
+                $scope.login();
+            });
+        };
 
         $scope.login = function (){
             var promise = OAuth.getAccessToken($scope.user);
@@ -48,4 +56,5 @@ angular.module('starter.controllers')
                     console.debug(responseError);
                 });
         };
+
 }]);

@@ -8,7 +8,6 @@
 
 namespace CodeDelivery\Services;
 
-
 use CodeDelivery\Repositories\ClientRepository;
 use CodeDelivery\Repositories\UserRepository;
 
@@ -43,12 +42,6 @@ class ClientService
         $user = $this->userRepository->create($data['user']);
         $data['user_id'] = $user->id;
         $this->clientRepository->create($data);
-    }
-
-    public function createUser(array $data)
-    {
-        $data['user']['password'] = bcrypt(123456);
-        $user = $this->userRepository->create($data['user']);
     }
 
 }
