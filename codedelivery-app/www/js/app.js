@@ -15,8 +15,8 @@ angular.module('starter',
   'pusher-angular','permission','http-auth-interceptor','ionic-toast'])
 
 .constant('appConfig', {
-  // baseUrl: 'http://dtsce.top',
-  baseUrl: 'http://codedelivery.app',
+  baseUrl: 'http://dtsce.top',
+  // baseUrl: 'http://codedelivery.app',
   clientId: 'appid01',
   clientSecret: 'secret', // optional
   grantPath: '/oauth/access_token',
