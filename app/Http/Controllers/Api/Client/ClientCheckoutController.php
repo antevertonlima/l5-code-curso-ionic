@@ -57,9 +57,8 @@ class ClientCheckoutController extends Controller
     {
         $idUser = Authorizer::getResourceOwnerId();
         $idClient = $this->userRepository->find($idUser)->client->id;
-        $o = $this->orderRepository
-            ->skipPresenter(false)
-            ->getByIdAndClient($id, $idClient);
+        $o = $this->orderRepository->skipPresenter(false)
+                  ->getByIdAndClient($id, $idClient);
         return $o;
     }
 
@@ -70,7 +69,6 @@ class ClientCheckoutController extends Controller
         $clientId = $this->userRepository->find($id)->client->id;
         $data['client_id'] = $clientId;
         $o = $this->service->create($data);
-
         return $this->orderRepository->skipPresenter(false)->find($o->id);
     }
 

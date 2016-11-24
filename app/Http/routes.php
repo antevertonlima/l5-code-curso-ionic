@@ -41,6 +41,7 @@ Route::group(['middleware' => 'cors'], function(){
 
 //rotas administrativas
 Route::group(['prefix' => 'admin','as' => 'admin.','middleware' => 'auth.checkrole:admin'], function(){
+    Route::get('dashboard', ['as' => 'dashboard','uses' => 'DashboardController@index']);
 
     Route::group(['prefix' => 'client'], function(){
         Route::get('', ['as' => 'client.index','uses' => 'ClientAdminController@index']);
@@ -49,6 +50,25 @@ Route::group(['prefix' => 'admin','as' => 'admin.','middleware' => 'auth.checkro
         Route::get('edit/{client_id}', ['as' => 'client.edit','uses' => 'ClientAdminController@edit']);
         Route::post('store', ['as' => 'client.store','uses' => 'ClientAdminController@store']);
         Route::post('update/{client_id}', ['as' => 'client.update','uses' => 'ClientAdminController@update']);
+    });
+    //rota de admistracao dos adms
+    Route::group(['prefix' => 'manager'], function(){
+        Route::get('', ['as' => 'manager.index','uses' => 'ManagerAdminController@index']);
+        Route::get('create', ['as' => 'manager.create','uses' => 'ManagerAdminController@create']);
+        Route::get('destroy/{user_id}', ['as' => 'manager.destroy', 'uses' =>'ManagerAdminController@destroy']);
+        Route::get('edit/{user_id}', ['as' => 'manager.edit','uses' => 'ManagerAdminController@edit']);
+        Route::post('store', ['as' => 'manager.store','uses' => 'ManagerAdminController@store']);
+        Route::post('update/{user_id}', ['as' => 'manager.update','uses' => 'ManagerAdminController@update']);
+    });
+
+    //rota de entregadors dos adms
+    Route::group(['prefix' => 'deliveryman'], function(){
+        Route::get('', ['as' => 'deliveryman.index','uses' => 'DeliverymanAdminController@index']);
+        Route::get('create', ['as' => 'deliveryman.create','uses' => 'DeliverymanAdminController@create']);
+        Route::get('destroy/{deliveryman_id}', ['as' => 'deliveryman.destroy', 'uses' =>'DeliverymanAdminController@destroy']);
+        Route::get('edit/{deliveryman_id}', ['as' => 'deliveryman.edit','uses' => 'DeliverymanAdminController@edit']);
+        Route::post('store', ['as' => 'deliveryman.store','uses' => 'DeliverymanAdminController@store']);
+        Route::post('update/{deliveryman_id}', ['as' => 'deliveryman.update','uses' => 'DeliverymanAdminController@update']);
     });
     //rota de categorias
     Route::group(['prefix' => 'category'], function(){

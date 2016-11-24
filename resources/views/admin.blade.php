@@ -31,8 +31,6 @@
     <![endif]-->
 
 </head>
-
-
 <body class="nav-md">
 
 <div class="container body">
@@ -83,11 +81,24 @@
                     <div class="menu_section">
                         <h3>Geral</h3>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-windows"></i> Gerenciar <span class="fa fa-chevron-down"></span></a>
+                            <li>
+                                <a href="{{ route('admin.dashboard') }}"><i class="fa fa-laptop"></i> Painel</a>
+                            </li>
+                            <li><a><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none">
+                                    <li>
+                                        <a href="{{ route('admin.manager.index') }}">Administradores</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.deliveryman.index') }}">Entregadores</a>
+                                    </li>
                                     <li>
                                         <a href="{{ route('admin.client.index') }}">Clientes</a>
                                     </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-windows"></i> Gerenciar <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none">
                                     <li>
                                         <a href="{{ route('admin.category.index') }}">Categorias</a>
                                     </li>
@@ -102,13 +113,13 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-edit"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                            <!-- <li><a><i class="fa fa-edit"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none">
                                     <li>
                                         <a href="{{ route('customer.order.index') }}">Meus Pedidos</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
 

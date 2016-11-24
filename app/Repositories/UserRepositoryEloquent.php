@@ -2,6 +2,7 @@
 
 namespace CodeDelivery\Repositories;
 
+use CodeDelivery\Presenters\UserPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use CodeDelivery\Repositories\UserRepository;
@@ -39,7 +40,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     public function presenter()
     {
-        return \CodeDelivery\Presenters\UserPresenter::class;
+        return UserPresenter::class;
     }
 
     public function updateDeviceToken($id,$deviceToken)

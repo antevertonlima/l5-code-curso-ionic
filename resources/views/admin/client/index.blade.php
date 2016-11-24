@@ -24,6 +24,7 @@
         <table class="table table-striped projects">
         	<thead>
         		<tr>
+					<th>Foto</th>
         			<th>Nome</th>
         			<th>E-mail</th>
         			<th>Tipo</th>
@@ -34,40 +35,43 @@
         	</thead>
         	<tbody>
         		@foreach($client as $clientes)
-	    			<tr>
-	        			<td>{{ $clientes->user->name }}</td>
-	        			<td>{{ $clientes->user->email }}</td>
-	        			<td>{{ $clientes->user->role }}</td>
-	        			<td>{{ $clientes->created_at }}</td>
-	        			<td>{{ $clientes->updated_at }}</td>
-	        			<td>
-                            <a href="{{ route('admin.client.edit',
+	    			@if($clientes->user->role == 'client')
+						<tr>
+							<td><img class="img-circle profile_img" src="{{ $clientes->user->gravatar }}" alt="{{ $clientes->user->name }}"></td>
+							<td>{{ $clientes->user->name }}</td>
+							<td>{{ $clientes->user->email }}</td>
+							<td>{{ $clientes->user->role }}</td>
+							<td>{{ $clientes->created_at }}</td>
+							<td>{{ $clientes->updated_at }}</td>
+							<td>
+								<a href="{{ route('admin.client.edit',
                             				 ['client_id' => $clientes->id]) }}"
-							   class="btn btn-info btn-xs"
-                            	data-toggle="tooltip" 
-                            	data-placement="top" title="" 
-                            	data-original-title="Editar Cliente">
-                            	<i class="fa fa-pencil"></i>  
-                            </a>
-                            <a href="{{ route('admin.client.destroy',
+								   class="btn btn-info btn-xs"
+								   data-toggle="tooltip"
+								   data-placement="top" title=""
+								   data-original-title="Editar Cliente">
+									<i class="fa fa-pencil"></i>
+								</a>
+								<a href="{{ route('admin.client.destroy',
                             				 ['client_id' => $clientes->id]) }}"
-							   class="btn btn-danger btn-xs"
-                            	data-toggle="tooltip" 
-                            	data-placement="top" title="" 
-                            	data-original-title="Excluir Cliente">
-                            	<i class="fa fa-trash-o"></i>  
-                            </a>
-                        </td>
-	        		</tr>
-	        		<tr>
-					    <td colspan="6">
-					    	<strong>Address:</strong> {{ $clientes->address }}<br>
-					    	<strong>Phone:</strong> {{ $clientes->phone }}<br>
-					    	<strong>City:</strong> {{ $clientes->city }}<br>
-					    	<strong>State:</strong> {{ $clientes->state }}<br>
-					    	<strong>Zipcode:</strong> {{ $clientes->zipcode }}
-					    </td>
-					</tr>
+								   class="btn btn-danger btn-xs"
+								   data-toggle="tooltip"
+								   data-placement="top" title=""
+								   data-original-title="Excluir Cliente">
+									<i class="fa fa-trash-o"></i>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="6">
+								<strong>Address:</strong> {{ $clientes->address }}<br>
+								<strong>Phone:</strong> {{ $clientes->phone }}<br>
+								<strong>City:</strong> {{ $clientes->city }}<br>
+								<strong>State:</strong> {{ $clientes->state }}<br>
+								<strong>Zipcode:</strong> {{ $clientes->zipcode }}
+							</td>
+						</tr>
+					@endif
         		@endforeach
         	</tbody>
         </table>

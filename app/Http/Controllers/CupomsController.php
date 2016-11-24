@@ -33,6 +33,8 @@ class CupomsController extends Controller
     public function store(AdminCupomRequest $request)
     {
         $data = $request->all();
+        \QrCode::format('png')->size(100)->generate($data['code'], 'assets/qr-code/thumbs/'.$data['code'].'.png');
+        \QrCode::format('png')->size(400)->generate($data['code'], 'assets/qr-code/normals/'.$data['code'].'.png');
         $this->repository->create($data);
         return redirect()->route('admin.cupoms.index');
     }

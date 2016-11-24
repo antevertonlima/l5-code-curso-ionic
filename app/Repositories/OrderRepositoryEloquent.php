@@ -28,9 +28,7 @@ class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
 
     public function getByIdAndClient($id, $idClient)
     {
-        $result = $this->model->where('id',$id)
-            ->where('client_id', $idClient)
-            ->first();
+        $result = $this->model->where('id',$id)->where('client_id', $idClient)->first();
         if ($result) {
             return $this->parserResult($result);
         }
