@@ -49,7 +49,17 @@
                                 --
                             @endif
                         </td>
-                        <td>{{ $order->status }}</td>
+                        <td>
+                            @if ($order->status == 0)
+                                Pendente
+                            @elseif ($order->status == 1)
+                                A Caminho
+                            @elseif ($order->status == 2)
+                                Entregue
+                            @else
+                                Cancelado
+                            @endif
+                        </td>
 	        			<td>
                             <a href="{{ route('admin.orders.edit',
                             				 ['order_id' => $order->id ]) }}"
