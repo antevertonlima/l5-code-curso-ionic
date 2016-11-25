@@ -1,8 +1,6 @@
 <?php
-
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateCacheTable extends Migration
 {
     /**
@@ -18,7 +16,6 @@ class CreateCacheTable extends Migration
             $table->integer('expiration');
         });
     }
-
     /**
      * Reverse the migrations.
      *
